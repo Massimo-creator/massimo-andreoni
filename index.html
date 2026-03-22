@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dott. Massimo Andreoni — Psicologo · Case Manager MSNA</title>
+<meta name="description" content="Dott. Massimo Andreoni — Psicologo clinico, Case Manager MSNA, Tutore volontario, Coordinatore di comunità educativa. Fondatore di EduCare.">
+<style>
+  :root {
+    --primary: #1b4f6b;
+    --primary-dark: #0f3348;
+    --accent: #d4813a;
+    --accent-light: #f0a05a;
+    --green: #3a8b72;
+    --bg: #fafaf8;
+    --bg2: #f1ede8;
+    --text: #2a2a2a;
+    --text-light: #5a5a5a;
+    --white: #ffffff;
+    --border: #e0d9d0;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --nav-h: 68px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    background: rgba(27, 79, 107, 0.97);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  }
+
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: 800; font-size: 14px; color: white;
+    letter-spacing: -0.5px;
+  }
+  .nav-name {
+    color: white; font-size: 15px; font-weight: 400;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.3px;
+  }
+  .nav-name span { color: var(--accent-light); font-style: italic; }
+
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    font-family: 'Arial', sans-serif; font-size: 13px;
+    letter-spacing: 0.8px; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent-light); }
+
+  .nav-cta {
+    background: var(--accent); color: white !important;
+    padding: 8px 18px; border-radius: 6px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent-light) !important; color: white !important; }
+
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, #1d6b82 100%);
+    display: flex; align-items: center;
+    padding: calc(var(--nav-h) + 60px) 40px 80px;
+    position: relative; overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; gap: 80px;
+    width: 100%; position: relative;
+  }
+  .hero-text { flex: 1; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(212,129,58,0.2); border: 1px solid rgba(212,129,58,0.4);
+    color: var(--accent-light); padding: 6px 16px; border-radius: 20px;
+    font-family: 'Arial', sans-serif; font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-name {
+    font-size: clamp(36px, 5vw, 58px);
+    color: white; font-weight: 400; line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero-name .dott { color: var(--accent-light); font-size: 0.55em; display: block; margin-bottom: 4px; }
+  .hero-roles {
+    font-family: 'Arial', sans-serif;
+    color: rgba(255,255,255,0.7); font-size: 17px;
+    margin-bottom: 32px; line-height: 1.9;
+  }
+  .hero-roles strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .hero-tagline {
+    font-size: 19px; color: rgba(255,255,255,0.85);
+    font-style: italic; margin-bottom: 48px;
+    border-left: 3px solid var(--accent); padding-left: 18px;
+    line-height: 1.6;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: white;
+    padding: 14px 32px; border-radius: 8px;
+    text-decoration: none; font-family: 'Arial', sans-serif;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.5px;
+    transition: all 0.2s; display: inline-block;
+    box-shadow: 0 4px 16px rgba(212,129,58,0.3);
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.4); color: white;
+    padding: 14px 32px; border-radius: 8px;
+    text-decoration: none; font-family: 'Arial', sans-serif;
+    font-size: 14px; letter-spacing: 0.5px;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+
+  .btn-cv {
+    border: 1.5px solid rgba(255,255,255,0.4); color: white;
+    padding: 14px 32px; border-radius: 8px;
+    text-decoration: none; font-family: 'Arial', sans-serif;
+    font-size: 14px; letter-spacing: 0.5px;
+    transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-cv:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+  /* FOTO PLACEHOLDER */
+  .hero-photo {
+    width: 280px; height: 280px; flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+    border: 3px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    position: relative; overflow: hidden;
+  }
+  .hero-photo img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+    display: none; /* nascosta finché non c'è foto */
+  }
+  .hero-photo-placeholder {
+    font-size: 80px; color: rgba(255,255,255,0.3);
+    line-height: 1;
+  }
+  .hero-photo-label {
+    font-family: 'Arial', sans-serif; font-size: 11px;
+    color: rgba(255,255,255,0.3); letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* SEZIONI GENERALI */
+  section { padding: 96px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-family: 'Arial', sans-serif; font-size: 11px;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-tag::after {
+    content: ''; flex: 0 0 30px; height: 1.5px;
+    background: var(--accent); display: block;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: var(--primary); margin-bottom: 16px; font-weight: 400;
+  }
+  .section-subtitle {
+    font-size: 17px; color: var(--text-light);
+    max-width: 640px; margin-bottom: 56px;
+    line-height: 1.8;
+  }
+
+  /* CHI SONO */
+  #chi-sono { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 17px; line-height: 1.85; color: var(--text);
+    margin-bottom: 20px;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-highlights {
+    display: flex; flex-direction: column; gap: 20px;
+    padding: 36px; background: var(--bg);
+    border-radius: var(--radius); border: 1px solid var(--border);
+  }
+  .about-highlights h3 {
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); font-family: 'Arial', sans-serif;
+    margin-bottom: 8px;
+  }
+  .highlight-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border);
+  }
+  .highlight-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .hi-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    border-radius: 10px; background: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .hi-text strong {
+    display: block; font-size: 15px; color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .hi-text span { font-size: 14px; color: var(--text-light); font-family: 'Arial', sans-serif; }
+
+  /* SERVIZI */
+  #servizi { background: var(--bg2); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+  }
+  .service-card {
+    background: var(--white); border-radius: var(--radius);
+    padding: 36px 32px; border: 1px solid var(--border);
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(27,79,107,0.1);
+    border-color: var(--primary);
+  }
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), #1d6b82);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 20px;
+  }
+  .service-card h3 {
+    font-size: 20px; color: var(--primary);
+    margin-bottom: 12px; font-weight: 400;
+  }
+  .service-card p {
+    font-size: 15px; color: var(--text-light);
+    line-height: 1.75; font-family: 'Arial', sans-serif;
+  }
+  .service-tag {
+    display: inline-block; margin-top: 20px;
+    font-family: 'Arial', sans-serif; font-size: 11px;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--accent); background: rgba(212,129,58,0.08);
+    padding: 4px 10px; border-radius: 4px;
+  }
+
+  /* EDUCARE */
+  #educare { background: var(--white); }
+  .educare-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .educare-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #1a4a7a, #2a8a5a);
+    padding: 10px 20px; border-radius: 8px;
+  }
+  .ec-logo {
+    width: 32px; height: 32px; border-radius: 7px;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: 800; font-size: 11px; color: white;
+  }
+  .educare-badge span {
+    color: white; font-family: 'Arial', sans-serif;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.5px;
+  }
+  .educare-text h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--primary); margin-bottom: 16px; font-weight: 400;
+  }
+  .educare-text p {
+    font-size: 16px; color: var(--text-light);
+    line-height: 1.8; margin-bottom: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+  .educare-features {
+    display: flex; flex-direction: column; gap: 10px;
+    margin: 24px 0;
+  }
+  .ef-item {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Arial', sans-serif; font-size: 14px; color: var(--text);
+  }
+  .ef-item::before {
+    content: '✓'; color: var(--green);
+    font-weight: 700; font-size: 15px;
+    flex-shrink: 0;
+  }
+  .educare-cta {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;
+  }
+  .btn-green {
+    background: linear-gradient(135deg, #1a4a7a, #2a8a5a);
+    color: white; padding: 13px 28px; border-radius: 8px;
+    text-decoration: none; font-family: 'Arial', sans-serif;
+    font-size: 14px; font-weight: 600;
+    transition: all 0.2s; box-shadow: 0 4px 16px rgba(26,74,122,0.2);
+  }
+  .btn-green:hover { opacity: 0.9; transform: translateY(-2px); }
+  .educare-visual {
+    background: linear-gradient(160deg, #0f3348, #1a4a7a, #1d7a5a);
+    border-radius: 16px; padding: 40px;
+    font-family: 'Arial', sans-serif;
+  }
+  .ev-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .ev-title { color: rgba(255,255,255,0.7); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+  .ev-dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; }
+  .ev-stat {
+    background: rgba(255,255,255,0.06); border-radius: 10px;
+    padding: 18px 20px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ev-stat-label { color: rgba(255,255,255,0.6); font-size: 13px; }
+  .ev-stat-value { color: white; font-size: 20px; font-weight: 700; }
+  .ev-modules {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px;
+  }
+  .ev-module {
+    background: rgba(255,255,255,0.06); border-radius: 8px;
+    padding: 10px 14px; font-size: 12px; color: rgba(255,255,255,0.7);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .ev-module span { font-size: 14px; }
+
+  /* ARTICOLI */
+  #articoli { background: var(--bg2); }
+  .articles-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
+  }
+  .article-card {
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; border: 1px solid var(--border);
+    transition: all 0.3s; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(27,79,107,0.1);
+  }
+  .article-img {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; position: relative; overflow: hidden;
+  }
+  .article-img.art1 { background: linear-gradient(135deg, #8b6914, #c49a3a); }
+  .article-img.art2 { background: linear-gradient(135deg, #1b4f6b, #1d7a6a); }
+  .article-img.art3 { background: linear-gradient(135deg, #5a3070, #8a4090); }
+  .article-body { padding: 28px; }
+  .article-cat {
+    font-family: 'Arial', sans-serif; font-size: 11px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .article-card h3 {
+    font-size: 19px; color: var(--primary);
+    margin-bottom: 10px; font-weight: 400; line-height: 1.4;
+  }
+  .article-card p {
+    font-size: 14px; color: var(--text-light);
+    line-height: 1.7; font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+  }
+  .article-meta {
+    font-family: 'Arial', sans-serif; font-size: 12px;
+    color: var(--text-light); display: flex;
+    align-items: center; gap: 6px;
+  }
+  .article-meta::before { content: '→'; color: var(--accent); }
+
+  /* CONTATTI */
+  #contatti { background: var(--white); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start;
+  }
+  .contact-intro p {
+    font-size: 17px; color: var(--text-light);
+    line-height: 1.8; margin-bottom: 32px;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 22px; border-radius: 10px;
+    background: var(--bg); border: 1px solid var(--border);
+    text-decoration: none; transition: all 0.2s;
+  }
+  .contact-link:hover {
+    border-color: var(--primary);
+    background: rgba(27,79,107,0.04);
+    transform: translateX(4px);
+  }
+  .cl-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--primary); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .cl-info strong {
+    display: block; color: var(--primary); font-size: 15px;
+    font-family: 'Arial', sans-serif;
+  }
+  .cl-info span { color: var(--text-light); font-family: 'Arial', sans-serif; font-size: 13px; }
+
+  /* FORM */
+  .contact-form {
+    background: var(--bg); border-radius: var(--radius);
+    padding: 40px; border: 1px solid var(--border);
+  }
+  .contact-form h3 {
+    font-size: 22px; color: var(--primary);
+    margin-bottom: 24px; font-weight: 400;
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-family: 'Arial', sans-serif;
+    font-size: 13px; color: var(--text-light);
+    margin-bottom: 6px; letter-spacing: 0.3px;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 16px;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: 'Georgia', serif; font-size: 15px;
+    background: white; color: var(--text);
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--primary);
+  }
+  .form-group textarea { height: 120px; resize: vertical; }
+  .form-submit {
+    width: 100%; padding: 14px;
+    background: var(--primary); color: white;
+    border: none; border-radius: 8px; cursor: pointer;
+    font-family: 'Arial', sans-serif; font-size: 14px;
+    font-weight: 600; letter-spacing: 0.5px;
+    transition: all 0.2s; margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--primary-dark); }
+  .form-success {
+    display: none; text-align: center; padding: 20px;
+    color: var(--green); font-size: 16px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--primary-dark); color: rgba(255,255,255,0.6);
+    padding: 48px 40px; font-family: 'Arial', sans-serif;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 12px; }
+  .footer-logo {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 12px; color: rgba(255,255,255,0.5);
+  }
+  .footer-text { font-size: 13px; }
+  .footer-text strong { color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    color: rgba(255,255,255,0.5); text-decoration: none;
+    font-size: 13px; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent-light); }
+  .footer-copy { font-size: 12px; width: 100%; text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* SCROLL TOP */
+  #scroll-top {
+    position: fixed; bottom: 28px; right: 28px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: white; border: none;
+    font-size: 18px; cursor: pointer; opacity: 0;
+    transition: all 0.3s; z-index: 99;
+    box-shadow: 0 4px 16px rgba(212,129,58,0.3);
+  }
+  #scroll-top.visible { opacity: 1; }
+  #scroll-top:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--primary-dark); padding: 20px; gap: 4px; }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .hamburger { display: flex; }
+    #hero { padding: calc(var(--nav-h) + 40px) 20px 60px; }
+    .hero-inner { flex-direction: column-reverse; gap: 40px; }
+    .hero-photo { width: 160px; height: 160px; }
+    .hero-photo-placeholder { font-size: 50px; }
+    section { padding: 64px 20px; }
+    .about-grid, .educare-inner, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .ev-modules { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">
+    <div class="nav-logo">MA</div>
+    <span class="nav-name">Massimo Andreoni · <span>Psicologo</span></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#chi-sono">Chi sono</a></li>
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#educare">EduCare</a></li>
+    <li><a href="#articoli">Articoli</a></li>
+    <li><a href="cv_andreoni.pdf" download="CV_Massimo_Andreoni.pdf">CV</a></li>
+    <li><a href="#contatti" class="nav-cta">Contattami</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Profilo professionale</div>
+      <h1 class="hero-name">
+        <span class="dott">Dott.</span>
+        Massimo Andreoni
+      </h1>
+      <div class="hero-roles">
+        <strong>Psicologo clinico</strong> · Case Manager MSNA<br>
+        Tutore volontario · Coordinatore CEM<br>
+        Fondatore di <strong>EduCare</strong>
+      </div>
+      <p class="hero-tagline">
+        "Al fianco dei minori stranieri non accompagnati e delle comunità educative — con strumenti psicologici, umani e digitali."
+      </p>
+      <div class="hero-ctas">
+        <a href="#servizi" class="btn-primary">I miei servizi</a>
+        <a href="#contatti" class="btn-outline">Scrivimi</a>
+        <a href="cv_andreoni.pdf" download="CV_Massimo_Andreoni.pdf" class="btn-cv">📄 Scarica CV</a>
+      </div>
+    </div>
+    <div class="hero-photo" id="photoContainer">
+      <!-- Sostituire con <img src="foto.jpg" alt="Massimo Andreoni"> quando disponibile -->
+      <div class="hero-photo-placeholder">👤</div>
+      <div class="hero-photo-label">Foto in arrivo</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SONO -->
+<section id="chi-sono">
+  <div class="section-inner">
+    <div class="section-tag">Chi sono</div>
+    <h2 class="section-title">Psicologo, tutore, costruttore di ponti</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Sono uno psicologo clinico con una specializzazione nella tutela dei minori stranieri non accompagnati (MSNA). Nel corso degli anni ho maturato esperienze come case manager, tutore volontario e coordinatore di comunità educativa residenziale, lavorando ogni giorno al punto di incontro tra il sistema di protezione dell'infanzia e le istituzioni che lo regolano.</p>
+        <p>Credo che un approccio psicologico serio debba partire proprio dalla formazione e dallo studio, e poi tradursi in strumenti concreti, relazioni autentiche e processi che funzionano. Ogni minore che accompagno ha una storia unica — e merita un percorso costruito su misura.</p>
+        <p>Da questa convinzione è nato <strong>EduCare</strong>, la piattaforma gestionale che ho progettato per semplificare il lavoro delle comunità educative in Italia: procedure più agili, più tempo da dedicare alle persone.</p>
+      </div>
+      <div class="about-highlights">
+        <h3>Ruoli e competenze</h3>
+        <div class="highlight-item">
+          <div class="hi-icon">🧠</div>
+          <div class="hi-text">
+            <strong>Psicologo clinico</strong>
+            <span>Psicologo abilitato · Colloqui individuali, familiari e supervisione d'équipe</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">🌍</div>
+          <div class="hi-text">
+            <strong>Case Manager MSNA</strong>
+            <span>Minori stranieri non accompagnati · Progetto migratorio individualizzato</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">🤝</div>
+          <div class="hi-text">
+            <strong>Tutore Volontario</strong>
+            <span>Tribunale per i Minorenni · Rappresentanza legale e accompagnamento</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">🏠</div>
+          <div class="hi-text">
+            <strong>Coordinatore CEM</strong>
+            <span>Gestione équipe educativa · Supervisione PEI · Raccordo istituzionale</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section id="servizi">
+  <div class="section-inner">
+    <div class="section-tag">Servizi</div>
+    <h2 class="section-title">Come posso aiutarti</h2>
+    <p class="section-subtitle">Lavoro con enti, comunità, famiglie e istituzioni che si occupano di minori in situazioni di vulnerabilità.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🌍</div>
+        <h3>Case Management MSNA</h3>
+        <p>Presa in carico globale del minore straniero non accompagnato: analisi del bisogno, progetto migratorio, raccordo con servizi sociali, questura, SAI e avvocati. Supporto continuativo nelle fasi di regolarizzazione.</p>
+        <span class="service-tag">Minori stranieri</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h3>Tutela Volontaria MSNA</h3>
+        <p>Affiancamento come tutore volontario nominato dal Tribunale per i Minorenni. Rappresentanza legale, accompagnamento ai procedimenti, protezione degli interessi del minore in ogni sede istituzionale.</p>
+        <span class="service-tag">Tutela legale</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Supporto Psicologico</h3>
+        <p>Colloqui di sostegno psicologico per minori, operatori, famiglie affidatarie e gruppi d'équipe. Valutazione del funzionamento adattivo, elaborazione del trauma migratorio, supporto nelle transizioni e nelle crisi.</p>
+        <span class="service-tag">Psicologia clinica</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Consulenza CEM</h3>
+        <p>Supporto alla coordinazione di comunità educative residenziali: impostazione dei PEI, organizzazione dell'équipe, raccordo con gli enti collocanti, ottimizzazione dei processi gestionali con EduCare.</p>
+        <span class="service-tag">Comunità educative</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Relazioni e Documentazione</h3>
+        <p>Redazione di relazioni psicosociali per Tribunale, Prefettura, Questura e servizi sociali. Documentazione strutturata secondo i requisiti normativi vigenti e le linee guida ministeriali.</p>
+        <span class="service-tag">Documentazione istituzionale</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>Formazione e Supervisione</h3>
+        <p>Percorsi formativi per équipe educative su: gestione delle crisi, comunicazione interculturale, PEI e strumenti di valutazione. Supervisione di gruppo per operatori di comunità.</p>
+        <span class="service-tag">Formazione</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCARE -->
+<section id="educare">
+  <div class="section-inner">
+    <div class="section-tag">Il mio progetto</div>
+    <div class="educare-inner">
+      <div class="educare-text">
+        <div class="educare-badge">
+          <div class="ec-logo">eC</div>
+          <span>EduCare</span>
+        </div>
+        <h2>La piattaforma gestionale per le comunità educative</h2>
+        <p>Ho costruito EduCare perché conoscevo il problema dall'interno: troppo tempo perso in fogli Excel, troppi documenti sparsi, troppa energia sottratta al lavoro con i minori.</p>
+        <p>EduCare è un gestionale web pensato per le comunità educative residenziali italiane. Permette di centralizzare fascicoli, turni, logbook, PEI, acquisti, comunicazioni — tutto in un'unica piattaforma sicura e accessibile.</p>
+        <div class="educare-features">
+          <div class="ef-item">Fascicoli minori con PEI e rete relazionale</div>
+          <div class="ef-item">Pianificazione turni e mansionario</div>
+          <div class="ef-item">Logbook digitale per ogni turno</div>
+          <div class="ef-item">Chat team in tempo reale</div>
+          <div class="ef-item">Gestione acquisti con doppia approvazione</div>
+          <div class="ef-item">Agenda riunioni e attività con i minori</div>
+        </div>
+        <div class="educare-cta">
+          <a href="https://edu-gestionale.netlify.app" target="_blank" class="btn-green">Accedi alla piattaforma</a>
+          <a href="#contatti" class="btn-outline" style="color:var(--primary); border-color:var(--border);">Richiedi una demo</a>
+        </div>
+      </div>
+      <div class="educare-visual">
+        <div class="ev-header">
+          <div class="ev-title">Dashboard EduCare</div>
+          <div class="ev-dot"></div>
+        </div>
+        <div class="ev-stat">
+          <span class="ev-stat-label">Minori in carico</span>
+          <span class="ev-stat-value">8</span>
+        </div>
+        <div class="ev-stat">
+          <span class="ev-stat-label">Operatori attivi</span>
+          <span class="ev-stat-value">5</span>
+        </div>
+        <div class="ev-stat">
+          <span class="ev-stat-label">Turni questo mese</span>
+          <span class="ev-stat-value">24</span>
+        </div>
+        <div class="ev-modules">
+          <div class="ev-module"><span>📋</span> Fascicoli</div>
+          <div class="ev-module"><span>📅</span> Turni</div>
+          <div class="ev-module"><span>📓</span> Logbook</div>
+          <div class="ev-module"><span>💬</span> Chat</div>
+          <div class="ev-module"><span>🛒</span> Acquisti</div>
+          <div class="ev-module"><span>🍽️</span> Menu</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICOLI -->
+<section id="articoli">
+  <div class="section-inner">
+    <div class="section-tag">Articoli</div>
+    <h2 class="section-title">Pensieri, ricerche, riflessioni</h2>
+    <p class="section-subtitle">Scrivo di psicologia, tutela minorile, antropologia e del lavoro quotidiano con le persone vulnerabili.</p>
+    <div class="articles-grid">
+
+      <div class="article-card">
+        <div class="article-img art1">🏺</div>
+        <div class="article-body">
+          <div class="article-cat">Antropologia</div>
+          <h3>Il Satiro Danzante di Mazara del Vallo</h3>
+          <p>Corpo, rito e mito nel mondo greco antico. Una lettura antropologica della scultura ellenistica emersa dal fondo del Canale di Sicilia.</p>
+          <div class="article-meta">Leggi l'articolo · Marzo 2026</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-img art2">🌍</div>
+        <div class="article-body">
+          <div class="article-cat">MSNA · Tutela</div>
+          <h3>Il progetto migratorio individualizzato</h3>
+          <p>Strumenti psicologici e metodologie per costruire percorsi di integrazione efficaci con i minori stranieri non accompagnati.</p>
+          <div class="article-meta">In arrivo</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-img art3">🧠</div>
+        <div class="article-body">
+          <div class="article-cat">Psicologia clinica</div>
+          <h3>Trauma migratorio e resilienza nei minori</h3>
+          <p>Come lavorare con i vissuti traumatici dei minori migranti: approcci clinici, strumenti di valutazione e cura della relazione terapeutica.</p>
+          <div class="article-meta">In arrivo</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section id="contatti">
+  <div class="section-inner">
+    <div class="section-tag">Contatti</div>
+    <h2 class="section-title">Parliamo</h2>
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <p>Sei un ente, una comunità educativa, un servizio sociale o un professionista che vuole collaborare? Scrivimi: rispondo sempre.</p>
+        <div class="contact-links">
+          <a href="mailto:andreonimassi@gmail.com" class="contact-link">
+            <div class="cl-icon">✉️</div>
+            <div class="cl-info">
+              <strong>andreonimassi@gmail.com</strong>
+              <span>Email principale</span>
+            </div>
+          </a>
+          <a href="https://edu-gestionale.netlify.app" target="_blank" class="contact-link">
+            <div class="cl-icon">🖥️</div>
+            <div class="cl-info">
+              <strong>edu-gestionale.netlify.app</strong>
+              <span>Piattaforma EduCare</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Inviami un messaggio</h3>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label>Nome e cognome</label>
+            <input type="text" placeholder="Mario Rossi" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="mario@esempio.it" required>
+          </div>
+          <div class="form-group">
+            <label>Motivo del contatto</label>
+            <select>
+              <option value="">Seleziona...</option>
+              <option>Consulenza MSNA / Case Management</option>
+              <option>Tutela volontaria</option>
+              <option>Supporto psicologico</option>
+              <option>Demo EduCare</option>
+              <option>Collaborazione professionale</option>
+              <option>Formazione / Supervisione</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Messaggio</label>
+            <textarea placeholder="Raccontami brevemente di cosa hai bisogno..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Invia messaggio →</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          ✓ Messaggio ricevuto! Ti rispondo presto.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">MA</div>
+      <div class="footer-text">
+        <strong>Dott. Massimo Andreoni</strong>
+        Psicologo · Case Manager MSNA · Fondatore di EduCare
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#chi-sono">Chi sono</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#educare">EduCare</a>
+      <a href="#articoli">Articoli</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-copy">
+      © 2026 Dott. Massimo Andreoni — Tutti i diritti riservati
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Nav mobile
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  // Chiudi nav cliccando un link
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Scroll top button
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scroll-top');
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Form submit (placeholder — da collegare a un backend o Netlify Forms)
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'rgba(255,255,255,1)'
+        : '';
+    });
+  });
+</script>
+</body>
+</html>
