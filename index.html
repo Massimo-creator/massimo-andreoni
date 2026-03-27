@@ -492,7 +492,24 @@ section{padding:100px 40px}
 .article-arch.art1{background:linear-gradient(160deg,#2A1400,#6B3A00)}
 .article-arch.art2{background:linear-gradient(160deg,#051818,#0A3838)}
 .article-arch.art3{background:linear-gradient(160deg,#1A0010,#5A1830)}
+.article-arch.art4{background:linear-gradient(160deg,#001A10,#0A4030)}
 .article-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(12,30,60,.15)}
+.article-card.clickable{cursor:pointer}
+/* ── MODAL ARTICOLO ──────────────────────── */
+.article-modal-overlay{position:fixed;inset:0;background:rgba(5,12,20,.85);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.article-modal-overlay.open{opacity:1;pointer-events:all}
+.article-modal{background:var(--parchment);max-width:720px;width:100%;border-radius:4px;border-top:4px solid var(--gold);position:relative;padding:48px 48px 56px;box-shadow:0 32px 80px rgba(0,0,0,.5)}
+@media(max-width:600px){.article-modal{padding:32px 24px 40px}}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;color:var(--textm);cursor:pointer;line-height:1;padding:4px 8px}
+.modal-close:hover{color:var(--lapis)}
+.modal-cat{font-family:'Lato',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.modal-title{font-family:'Amiri',serif;font-size:28px;color:var(--lapis);line-height:1.3;margin-bottom:6px;font-weight:400}
+@media(max-width:600px){.modal-title{font-size:22px}}
+.modal-subtitle{font-family:'Lato',sans-serif;font-size:13px;color:var(--textm);margin-bottom:32px;font-style:italic;line-height:1.6}
+.modal-divider{border:none;border-top:1px solid var(--border);margin:24px 0;opacity:.5}
+.modal-section-title{font-family:'Amiri',serif;font-size:17px;color:var(--lapis);margin:28px 0 10px;font-weight:400}
+.modal-body p{font-family:'Lato',sans-serif;font-size:15px;color:var(--text);line-height:1.85;margin-bottom:16px;font-weight:300}
+.modal-footer{font-family:'Lato',sans-serif;font-size:12px;color:var(--textm);margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
 .article-body{padding:16px 24px 24px}
 .article-cat{font-family:'Lato',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .article-card h3{font-family:'Amiri',serif;font-size:20px;color:var(--lapis);margin-bottom:10px;font-weight:400;line-height:1.4}
@@ -918,6 +935,16 @@ footer::before{
         </div>
       </div>
 
+      <div class="article-card clickable" onclick="openArticleModal()">
+        <div class="article-arch art4">🏗️</div>
+        <div class="article-body">
+          <div class="article-cat">Pedagogia · MSNA</div>
+          <h3>L'identità come cantiere aperto</h3>
+          <p>Educare nella costruzione del sé nei MSNA. Una rielaborazione pedagogica a partire da Michela Murgia: identità, cura, tempo e appartenenza nella comunità educativa.</p>
+          <div class="article-meta">Leggi l'articolo · Marzo 2026</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1014,6 +1041,56 @@ footer::before{
 
 <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<!-- MODAL ARTICOLO: L'identità come cantiere aperto -->
+<div class="article-modal-overlay" id="articleModal" onclick="closeArticleModal(event)">
+  <div class="article-modal">
+    <button class="modal-close" onclick="closeArticleModal(null,true)" aria-label="Chiudi">✕</button>
+    <div class="modal-cat">Pedagogia · MSNA · Marzo 2026</div>
+    <h2 class="modal-title">L'identità come cantiere aperto: educare nella costruzione del sé nei MSNA</h2>
+    <p class="modal-subtitle">Rielaborazione pedagogica dei temi centrali del libro di Michela Murgia<br><em>Futuro interiore</em>, Rizzoli, 2023</p>
+    <hr class="modal-divider">
+    <div class="modal-body">
+      <p class="modal-section-title">Premessa: l'educazione nasce nelle relazioni</p>
+      <p>L'educazione non nasce nei palazzi, non nasce nei luoghi fisici, nemmeno semplicemente dentro una comunità intesa come spazio, ma nelle relazioni. Prende forma quando l'educatore rinuncia a stare sopra, a controllare, a misurare le persone secondo logiche meritocratiche giudicanti o a ridurle a comportamenti devianti, e sceglie invece di stare accanto. Non è trasmettere un sapere già confezionato: è costruirlo insieme. Non è adattare l'adolescente al mondo: è metterlo in condizione di capirlo e, se necessario, cambiarlo.</p>
+      <p>Ci sono esperienze che questa idea l'hanno incarnata prima ancora che venisse teorizzata. Don Lorenzo Milani, che ha restituito la parola a chi non ce l'aveva, rendendo evidente che senza parola non c'è difesa, partecipazione, libertà. Don Roberto Sardelli, che ha portato l'educazione dove nessuno voleva guardare, nelle baracche, ai margini. E Don Bosco, che stava nei cortili, costruendo relazioni prima ancora che percorsi educativi, perché senza fiducia non c'è educazione possibile. Questa non è una premessa teorica. È una scelta di posizione. Ed è esattamente il punto da cui prende forma il lavoro quotidiano in comunità con i MSNA.</p>
+
+      <p class="modal-section-title">Una seconda premessa: stare, non salvare</p>
+      <p>C'è un'idea diffusa, spesso anche in buona fede, secondo cui educare significhi "salvare" qualcuno. È un'immagine potente, ma fuorviante. Il lavoro educativo in comunità non ha nulla di eroico. Non ci sono mantelli, ma turni, stanchezza, dubbi, e spesso più domande che risposte. La convinzione di poter risolvere la vita di un altro, di essere indispensabili, di dover produrre risultati visibili, rischia di diventare una distorsione della relazione. Sposta il centro sull'educatore e non sulla persona.</p>
+      <p>Quello che resta, quando si toglie questa illusione, è qualcosa di più semplice e più esigente: stare. Re-stare quando l'altro è arrabbiato. Restare quando non succede nulla. Restare anche quando si ha la sensazione di non aver inciso. Le persone non si salvano. Si incontrano. E a volte, forse, in quell'incontro, qualcosa cambia.</p>
+
+      <p class="modal-section-title">Introduzione</p>
+      <p><em>Futuro interiore</em> è un libro di Michela Murgia che parla di costruzione del sé, di appartenenze molteplici, di cura come pratica politica e relazionale. Murgia lo scrive come una serie di conversazioni, con se stessa, con la sua famiglia queer, con il tempo che le rimane, ma anche come un invito a pensare l'identità come qualcosa che si può scegliere, negoziare, trasformare. Chi lavora in una comunità con i Minori Stranieri Non Accompagnati si trova quotidianamente dentro questo stesso processo. Arrivano ragazzi che devono costruire un'identità nuova a partire da radici interrotte, categorie che non bastano più, esperienze che non trovano facilmente parole. In questo senso, l'educatore non osserva il processo dall'esterno. Ne fa parte.</p>
+
+      <p class="modal-section-title">1. L'identità non è un dato, è un progetto</p>
+      <p>L'identità non è qualcosa che viene consegnato una volta per tutte. Si costruisce, si modifica, si rinegozia nel tempo. È un processo aperto, fatto di scelte, più che di appartenenze subite. Quando un minore arriva in comunità non porta un'identità definita da proteggere o da correggere. Porta frammenti: di cultura d'origine, di viaggio, di trauma, di aspettative, di linguaggi interni non integrati tra loro. Il lavoro educativo si gioca proprio qui: non nel riempire quei vuoti con modelli teorici già pronti, ma nel creare uno spazio in cui quei pezzi possano trovare una forma possibile. È importante interrogarsi sul fatto che si stia accompagnando una costruzione piuttosto che proponendo un modello dentro il quale il MSNA si deve accomodare.</p>
+
+      <p class="modal-section-title">2. Scegliersi: oltre l'idea tradizionale di famiglia</p>
+      <p>L'idea di "famiglia queer" proposta da Murgia apre una possibilità interessante: pensare all'appartenenza non solo come qualcosa che si eredita da un luogo o dal sangue, ma anche come qualcosa che si costruisce nel tempo nel contesto che abitiamo, attraverso le relazioni e le esperienze che scegliamo di vivere. Per molti ragazzi MSNA, la famiglia è lontana, assente, oppure presente sotto forma di aspettative e pressioni.</p>
+      <p>La comunità non può sostituire la famiglia, e nemmeno deve provarci. Può però diventare un luogo in cui si fa esperienza di una relazione affidabile, sicura, non scontata, non obbligata. Non perché "siamo come una famiglia", formula che rischia di creare aspettative irrealistiche, ma perché, nel concreto, qualcuno resta, ricorda, torna, tiene il filo della relazione anche quando si spezza. I piccoli gesti educativi quotidiani — ricordarsi una data, affiancare e tornare dopo un conflitto, re-stare giorno dopo giorno, riconoscere una storia — danno un senso di continuità e di ricostruzione molto più delle dichiarazioni. Costruire piccoli rituali di appartenenza in comunità, non come performance, ma come segnali concreti che ogni minore è visto, ascoltato e tenuto a mente nella sua specificità, significa offrirgli quello spazio mentale in cui potersi rispecchiare e crescere, come ricordava Danilo Dolci: <em>ciascuno cresce solo se sognato</em>.</p>
+
+      <p class="modal-section-title">3. La cura come pratica politica</p>
+      <p>La cura, il prendersi cura, non è solo una dimensione affettiva, relazionale, psicologica. È una posizione. Significa andare contro una visione del mondo in cui ciascuno deve farcela da solo, in cui le fragilità vengono nascoste o gestite. Lavorare in una comunità per MSNA significa anche questo: scegliere di dare tempo (e darsi tempo), attenzione, continuità a chi spesso viene trattato come un problema da risolvere rapidamente.</p>
+      <p>Ma la cura non si regge da sola: senza sostegno si consuma, senza riconoscimento si svuota, senza spazi di rielaborazione si irrigidisce. Per questo supervisione, confronto e formazione degli educatori non sono elementi accessori, ma condizioni necessarie perché la cura resti tale nel tempo. È una responsabilità che riguarda l'intera équipe, chiamata a interrogarsi continuamente su come sostenere e proteggere se stessa.</p>
+
+      <p class="modal-section-title">4. Il tempo: tra urgenza e sospensione</p>
+      <p>Molti MSNA vivono una tensione costante tra urgenza e attesa. Da un lato, la necessità di fare in fretta: lavorare, regolarizzarsi, sostenere la famiglia di origine inviando loro denaro; dall'altro, tempi lunghi, incerti, spesso fuori dal loro controllo. Dentro questa tensione, il presente rischia di scomparire, ridotto a passaggio obbligato verso qualcosa che deve ancora arrivare.</p>
+      <p>I bisogni che i ragazzi portano sono reali e spesso urgenti, ma sono anche profondamente segnati dall'ansia di dover recuperare tutto subito e dal riscatto di tutte le deprivazioni vissute e subite, spesso di natura affettiva ed emotiva, ma anche legate ai bisogni primari, come la sicurezza, la stabilità e la continuità delle cure. Il lavoro educativo non consiste nel negare questa urgenza, ma nel non lasciare che diventi l'unico orizzonte della relazione. Il tempo della comunità è un tempo diverso: non è quello dell'immediatezza, ma quello della costruzione. Dare valore a ciò che accade adesso significa restituire al presente una dignità che non sia solo quella di passaggio verso altro. In questo senso, l'educatore non è alla mercé dei bisogni, ma li accoglie, li riconosce e li rielabora dentro un tempo che permette di trasformarli, senza esserne travolto.</p>
+
+      <p class="modal-section-title">5. Il dolore non è l'ultima parola</p>
+      <p>Il trauma e il dolore sono presenti in molte delle storie dei MSNA accolti in comunità, ma non ne esauriscono l'identità. Ridurre una persona al suo trauma, ai comportamenti devianti o provocatori, o alle manifestazioni del disagio psicologico, è una forma sottile di semplificazione che rischia di trasformarsi in etichettamento ed emarginazione. Significa fermarsi a una sola dimensione e costruire su quella una serie di interpretazioni e interventi che, invece di aiutare, finiscono per irrigidire l'immagine del minore e limitarne le possibilità, perdendo di vista la sua complessità e le sue potenzialità.</p>
+      <p>Il lavoro educativo, al contrario, richiede uno sguardo più ampio e articolato: riconosce il dolore, le fragilità, ma continua a vedere possibilità, risorse e desideri. Offrire responsabilità, fiducia e occasioni per sperimentarsi in ruoli diversi significa aprire prospettive nuove. Non si tratta di negare il dolore, la sofferenza o i comportamenti devianti, provocatori, intimidatori — ma di non lasciare loro l'ultima parola e di non permettere che definiscano o compromettano la costruzione di un'identità in evoluzione.</p>
+
+      <p class="modal-section-title">Conclusione: educare nell'incertezza</p>
+      <p>Il libro di Michela Murgia non offre soluzioni, ma indica un modo di abitare l'incertezza educativa senza rinunciare a costruire. È una posizione che risuona profondamente nel lavoro educativo. Non c'è garanzia sull'esito. Non c'è certezza su come andranno le cose, né sui tempi. C'è però la possibilità di scegliere come stare nella relazione, e in questo senso anche la prognosi sociale non è qualcosa di dato una volta per tutte, ma si costruisce nel tempo a partire da una pedagogia concreta, relazionale e situazionale, che si fonda sulla presenza, sulla continuità e sulla capacità di leggere e accompagnare ciò che accade ogni giorno.</p>
+      <p>In questo senso, la speranza non è ottimismo. È una scelta attiva: continuare a investire nella relazione significa costruire la possibilità di tenere aperto lo spazio del futuro anche quando tutto sembra incerto. Come chi semina senza sapere quando germoglierà, così in questo lavoro educativo di cura quotidiana si gioca la possibilità di un esito diverso per chi attraversa la comunità: è lì che si tiene aperto il futuro, ed è lì che il nostro stare acquista senso nell'incertezza del presente.</p>
+    </div>
+    <div class="modal-footer">
+      dott. Massimo Andreoni, Psicologo coordinatore<br>
+      Elaborazione pedagogica a partire da: Michela Murgia, <em>Futuro interiore</em>, Rizzoli, 2023
+    </div>
+  </div>
+</div>
+
 <script>
 function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
 document.querySelectorAll('.nav-links a').forEach(a=>{
@@ -1027,6 +1104,19 @@ function submitForm(e){
   document.getElementById('contactForm').style.display='none'
   document.getElementById('formSuccess').style.display='block'
 }
+function openArticleModal(){
+  var m=document.getElementById('articleModal');
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  m.scrollTop=0;
+}
+function closeArticleModal(e,force){
+  if(force||e.target===document.getElementById('articleModal')){
+    document.getElementById('articleModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeArticleModal(null,true)});
 const sections=document.querySelectorAll('section[id]')
 const navLinks=document.querySelectorAll('.nav-links a')
 window.addEventListener('scroll',()=>{
@@ -1037,3 +1127,4 @@ window.addEventListener('scroll',()=>{
 </script>
 </body>
 </html>
+
