@@ -493,6 +493,7 @@ section{padding:100px 40px}
 .article-arch.art2{background:linear-gradient(160deg,#051818,#0A3838)}
 .article-arch.art3{background:linear-gradient(160deg,#1A0010,#5A1830)}
 .article-arch.art4{background:linear-gradient(160deg,#001A10,#0A4030)}
+.article-arch.art5{background:linear-gradient(160deg,#150505,#4A1010)}
 .article-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(12,30,60,.15)}
 .article-card.clickable{cursor:pointer}
 /* ── MODAL ARTICOLO ──────────────────────── */
@@ -945,6 +946,16 @@ footer::before{
         </div>
       </div>
 
+      <div class="article-card clickable" onclick="openCaivanoModal()">
+        <div class="article-arch art5">⚖️</div>
+        <div class="article-body">
+          <div class="article-cat">Giustizia minorile · Politiche sociali</div>
+          <h3>Il Decreto Caivano due anni dopo: quando la sicurezza diventa un alibi</h3>
+          <p>Più minori in carcere, più trasferimenti, più psicofarmaci. Analisi di una svolta che ha cambiato la giustizia minorile italiana senza risolvere nulla di quello che prometteva.</p>
+          <div class="article-meta">Leggi l'articolo · Marzo 2026</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1091,6 +1102,63 @@ footer::before{
   </div>
 </div>
 
+<div class="article-modal-overlay" id="caivanoModal" onclick="closeCaivanoModal(event)">
+  <div class="article-modal">
+    <button class="modal-close" onclick="closeCaivanoModal(null,true)" aria-label="Chiudi">✕</button>
+    <div class="modal-cat">Giustizia minorile · Politiche sociali · Marzo 2026</div>
+    <h2 class="modal-title">Il Decreto Caivano due anni dopo: quando la sicurezza diventa un alibi</h2>
+    <p class="modal-subtitle">Più minori in carcere, più trasferimenti, più psicofarmaci. L'analisi di una svolta che ha cambiato la giustizia minorile italiana senza risolvere nulla di quello che prometteva e aggravando molto di quello che già non funzionava.</p>
+    <hr class="modal-divider">
+    <div class="modal-body">
+      <p>Era agosto 2023. A Caivano, in un quartiere di periferia a nord di Napoli costruito quarant'anni prima per ospitare i sopravvissuti al terremoto e poi abbandonato a sé stesso, erano avvenuti fatti gravissimi. Giorgia Meloni era arrivata a Parco Verde con le telecamere, le promesse e la certezza che lo Stato dovesse finalmente "rispondere con fermezza". Qualche settimana dopo nasceva il decreto-legge 123/2023, battezzato immediatamente con il nome del quartiere che l'aveva ispirato. Due anni e mezzo dopo, vale la pena tornare a Caivano, e nei numeri, per capire cosa è cambiato davvero.</p>
+
+      <p class="modal-section-title">I numeri che nessuno voleva</p>
+      <p>La risposta breve è: pochissimo di buono, molto di cattivo. Al 31 dicembre 2025, gli istituti penali minorili italiani ospitano 572 giovani detenuti. Erano 381 alla fine del 2022. Un aumento del 50% in tre anni. Lo documenta l'ottavo Rapporto sulla Giustizia Minorile di Antigone, intitolato non a caso <em>Non ti credo più</em>. Susanna Marietti, coordinatrice nazionale dell'associazione, è netta: questa crescita non riflette un'impennata della criminalità giovanile. Riflette un'"espansione della risposta penale".</p>
+      <p>I dati lo confermano in modo imbarazzante. Nel 2024 le segnalazioni di minorenni sono cresciute quasi del 17% rispetto all'anno precedente. Ma quella percentuale crolla al 12% quando si guarda alle prese in carico effettive da parte degli Uffici di Servizio Sociale per Minorenni, e scende ancora al 2% se si considerano gli ingressi reali nel sistema della giustizia minorile. Il tasso di denuncia italiano, 363 per 100.000 minori, è quasi la metà della media europea di 647. "Una parte consistente delle denunce finisce nel nulla", spiega Marietti. "È la paura che cresce, sotto la spinta dell'allarme generato artificiosamente da questo Governo. Attorno ai più giovani si è costruito un vero e proprio panico morale. Comportamenti che un tempo sarebbero stati affrontati in ambito educativo, famigliare, scolastico, vengono oggi segnalati alle forze dell'ordine." I reati per cui si finisce in carcere sono per lo più furto, violazioni sulle droghe, piccoli reati contro la proprietà. Non le stragi che il decreto evocava. E nel 2023, l'anno in cui il decreto veniva approvato, le segnalazioni a carico di minorenni erano addirittura diminuite del 4% rispetto all'anno prima.</p>
+
+      <p class="modal-section-title">Cosa è successo davvero a Caivano</p>
+      <p>Sei mesi dopo le promesse del governo, un'inchiesta sul campo raccontava già la distanza abissale tra la retorica e la realtà. Le pattuglie erano arrivate, sì. Ma Parco Verde continuava a ospitare dodici punti di spaccio gestiti da reti criminali radicate. I servizi promessi — lavoro, formazione, programmi per i giovani — non erano arrivati o, se arrivati, risultavano difficilmente accessibili. Le associazioni locali che cercavano di costruire una collaborazione con le istituzioni riferivano di non aver mai ricevuto risposta. Bruno Mazza di "Un'Infanzia da Vivere", che lavora in quel territorio da anni, sintetizzava così: "Il decreto ha portato molti minori in carcere in tutta Italia, ma non ha trasformato le condizioni di Parco Verde." L'80% dei bambini del quartiere non ha completato la scuola elementare. I residenti, raccontavano, vogliono solo un lavoro onesto. Le opportunità, però, non esistono.</p>
+      <p>Un anno dopo, a ottobre 2024, il quadro era ancora più sconfortante. Il decreto aveva prodotto la norma, non il cambiamento. "Sono arrivati i poliziotti, ma non gli educatori", diceva ancora Mazza. "Così non cambia niente."</p>
+
+      <p class="modal-section-title">Il panico morale e la costruzione del nemico</p>
+      <p>Prima ancora di parlare di carceri e numeri, vale la pena fermarsi su qualcosa che viene prima: il clima culturale che ha reso possibile il decreto. Perché il decreto Caivano non è nato nel vuoto. È nato dentro una narrazione costruita con cura — quella dell'adolescente pericoloso, della baby gang, del minore straniero deviante, dell'emergenza criminalità giovanile che richiedeva una risposta immediata e muscolosa.</p>
+      <p>I sociologi chiamano questo fenomeno "panico morale": un processo in cui un gruppo sociale viene identificato come minaccia ai valori fondamentali della comunità, la percezione del pericolo viene amplificata ben oltre le proporzioni reali, e si crea la pressione politica per risposte securitarie e oppressive straordinarie. Lo ha teorizzato Stanley Cohen negli anni Settanta, studiando la costruzione mediatica dei mods e dei rockers in Inghilterra. Cinquant'anni dopo, il meccanismo funziona esattamente allo stesso modo, con protagonisti diversi.</p>
+      <p>Il risultato è quella catena paradossale che i dati fotografano: le segnalazioni crescono del 17%, ma gli ingressi reali nel sistema crescono solo del 2%. La percezione del pericolo corre molto più veloce del pericolo reale. Il panico morale ha una funzione politica precisa: rende accettabili misure che in condizioni normali sarebbero difficilmente giustificabili. Abbassare l'età di imputabilità effettiva, restringere le misure alternative, facilitare la detenzione cautelare, trasferire ragazzi alle carceri per adulti. Il decreto Caivano è stata quella risposta: non alla criminalità giovanile reale, ma alla paura della criminalità giovanile costruita.</p>
+
+      <p class="modal-section-title">La svolta punitiva e il suo costo sociale</p>
+      <p>Il Decreto Caivano ha segnato, secondo Antigone, "la più grande svolta repressiva sulla giustizia minorile mai effettuata dall'introduzione del codice di procedura penale minorile nel 1988 a oggi." Trent'anni di un sistema che il mondo ci invidiava, fondato sul principio che il minore autore di reato fosse anzitutto una persona in formazione, smontato con un decreto d'urgenza varato sull'onda dell'emozione collettiva.</p>
+      <p>Sofia Antonelli, ricercatrice di Antigone, è precisa nell'analisi: "Il decreto Caivano ha segnato una svolta simbolica e sostanziale. Ha ampliato le possibilità di intervento custodiale, irrigidito le misure cautelari e trasformato strumenti temporanei in percorsi spesso definitivi verso il carcere." Non è solo una questione di norme, aggiunge Marietti: "Questo decreto non è solo norme, ma anche indicazioni culturali, che il sistema ha finito per recepire."</p>
+      <p>Il professor Pierangelo Barone dell'Università Milano-Bicocca chiama questo cambiamento "pedagogia della sicurezza": un approccio che privilegia il controllo sulla relazione, la punizione sulla comprensione biografica. Quando si smette di chiedersi perché un ragazzo ha fatto quello che ha fatto, e ci si concentra solo su quanto deve pagare, si perde il cuore stesso del lavoro psicologico ed educativo.</p>
+
+      <p class="modal-section-title">Psicofarmaci, autolesionismo e il corpo che chiede quello che le istituzioni non danno</p>
+      <p>Il titolo del rapporto di Antigone, <em>Non ti credo più</em>, non è scelto a caso. "A parlare è uno dei tanti giovani che mettiamo in galera, trasferiamo da un carcere all'altro come fosse un pacco, riempiamo di psicofarmaci, spediamo a rovinarsi per sempre la vita in un carcere per adulti, teniamo chiuso in celle fatiscenti, abbandoniamo a un'esistenza disperata", scrive Marietti. "Così andiamo perdendo i nostri ragazzi, invece di puntare su quel recupero a ogni costo verso il quale in passato la giustizia minorile era protesa."</p>
+      <p>Dentro gli istituti penali minorili, nel silenzio dei numeri ufficiali, sta crescendo qualcosa che dovrebbe allarmare molto di più delle statistiche sul sovraffollamento: il ricorso crescente agli psicofarmaci come strumento di gestione del disagio, e l'aumento dei gesti di autolesionismo. Il dato non è ancora sistematicamente monitorato a livello nazionale, e già questo dice qualcosa. Ma chi lavora nei servizi lo conosce bene. In strutture sovraffollate, con personale insufficiente e tempi di permanenza sempre più lunghi, la risposta al malessere psicologico dei ragazzi tende sempre più spesso a essere farmacologica. Non perché la terapia farmacologica sia sbagliata in sé, ma perché in questi contesti diventa frequentemente un sostituto: sostituisce l'ascolto, sostituisce la relazione, sostituisce il tempo che un educatore o uno psicologo dovrebbe poter dedicare a ogni singolo ragazzo.</p>
+      <p>L'autolesionismo racconta la stessa storia da un'altra angolazione. Quando un ragazzo si fa del male dentro un istituto, non sta solo "dando problemi". Sta comunicando qualcosa che non riesce a dire in altro modo: un disagio che non trova parole, un dolore che non trova interlocutori, una richiesta di attenzione che il contesto non è attrezzato a ricevere. In ambienti sovraccarichi, tesi, dove la priorità è il controllo e non la cura, quel segnale spesso viene gestito nell'emergenza — con sedazione, isolamento o trasferimento — senza mai raggiungere le sue radici. L'ultimo biennio è stato anche quello delle presunte torture al Beccaria, del suicidio di un giovanissimo ragazzo a Treviso, delle proteste trattate come fenomeno criminale e disciplinare anziché come segnale di malessere.</p>
+
+      <p class="modal-section-title">Il giro delle strutture: quando il trasferimento diventa una punizione silenziosa</p>
+      <p>C'è una pratica che chi opera nel settore conosce e che rimane quasi invisibile nel dibattito pubblico: il trasferimento sistematico dei cosiddetti "minori di difficile gestione" da un istituto all'altro, ma anche da una comunità educativa all'altra. I numeri, adesso, confermano quello che gli operatori raccontavano da mesi: tra il 2022 e il 2024 i trasferimenti tra istituti sono aumentati del 147,9%. "I detenuti considerati difficili vanno presi in cura dal sistema integrato dei servizi", dice Marietti, "e non fatti girare come trottole per l'Italia."</p>
+      <p>Eppure è esattamente quello che accade. Un ragazzo che dà problemi — perché aggredisce, perché si taglia, perché il suo comportamento destabilizza il gruppo — viene spostato. Cambia istituto, cambia comunità, cambia città, a volte cambia regione. Dal punto di vista dell'amministrazione è una soluzione: si alleggerisce la struttura in crisi, si ridistribuisce il problema. Dal punto di vista del ragazzo è un disastro. Ogni trasferimento spezza quello che di buono si era costruito: la relazione con un educatore, il legame con un compagno, la familiarità con un luogo. Si ricomincia da zero. E ogni volta che si ricomincia da zero, si consolida in lui l'idea che le relazioni non durano, che gli adulti spariscono, che il sistema lo usa ma non lo vede.</p>
+      <p>Il paradosso è evidente: i ragazzi che più avrebbero bisogno di stabilità relazionale sono quelli che vengono spostati più spesso. Quelli con le biografie più complesse, i traumi più profondi, le risorse più esigue. L'etichetta di "difficile gestione" li precede, nei fascicoli, in ogni nuova struttura. E per i più grandi la situazione è anche peggiore: il decreto Caivano ha facilitato, in chiave punitiva, il trasferimento dei ragazzi divenuti neomaggiorenni dagli IPM alle carceri per adulti, interrompendo bruscamente ogni percorso educativo.</p>
+
+      <p class="modal-section-title">La storia biografica: quello che il decreto non ha tempo di leggere</p>
+      <p>C'è un ultimo snodo, forse il più importante. Il decreto Caivano, come ogni risposta emergenziale, parte dall'atto — dal reato, dal comportamento deviante, dal gesto violento — senza interrogarsi sulla traiettoria che ci ha portato lì. Ma ogni ragazzo che finisce in un istituto penale minorile ha una storia. Ha avuto una famiglia, o non ce l'ha avuta. Ha attraversato migrazioni, deprivazioni materiali e affettive, abbandoni, violenze, povertà. Spesso è stato lui stesso vittima prima di diventare autore. Ha sviluppato strategie di sopravvivenza, alcune delle quali sono quelle che il sistema chiama reati, in risposta a contesti che non gli lasciavano molte altre opzioni.</p>
+      <p>Il rapporto Antigone mette in luce una selezione che non è casuale: i giovani stranieri, e in particolare i minori stranieri non accompagnati, sono sovrarappresentati negli istituti penali. "La loro sovra-rappresentazione nei servizi residenziali e negli IPM è il segno di una selezione che colpisce chi ha meno risorse sociali e familiari", spiega Rachele Stroppa. "Non è solo una questione di reato, ma di marginalità." I dati smentiscono anche il racconto della pericolosità: i reati ascritti ai ragazzi stranieri sono per il 60% reati contro il patrimonio, meno gravi di quelli commessi dai coetanei italiani. "Più si attacca il sistema di accoglienza SAI dei minori stranieri non accompagnati, più le carceri si affollano", aggiunge Stroppa. "Lo abbiamo dimostrato coi numeri."</p>
+      <p>Una significativa presa in carico psicologica e sociale dovrebbe partire dalla biografia, non dal comportamento. Dovrebbe chiedersi cosa ha imparato questo ragazzo sull'affidabilità degli adulti, sul futuro, sul proprio valore. Dovrebbe ricostruire, con pazienza e competenza, una narrativa di sé che non si esaurisca nell'etichetta del "delinquente" o del "difficile". Questo lavoro richiede tempo, competenze e risorse: più psicologi nelle strutture con carichi sostenibili, educatori formati e stabili, supervisione clinica per le équipe multidisciplinari. Niente di tutto questo è previsto in modo strutturale dal decreto, né dalle misure che ne sono derivate.</p>
+
+      <p class="modal-section-title">Cosa servirebbe davvero</p>
+      <p>La risposta la danno proprio quelli che il decreto lo vivono nei territori. Servirebbe investire in modo serio e pluriennale. Servirebbero servizi di prossimità che non scompaiano dopo la conferenza stampa. Servirebbe che le organizzazioni del terzo settore — che spesso reggono da sole il peso dell'intervento nei quartieri difficili — fossero riconosciute come co-protagoniste di una politica pubblica e non lasciate a competere per briciole. Servirebbe una presa in carico psicologica strutturata, non episodica: psicologi negli istituti penali e nelle comunità educative con tempo sufficiente per costruire relazioni di sostegno e di aiuto, non solo per gestire le emergenze.</p>
+      <p>Servirebbe smettere di spostare i ragazzi difficili come se fossero un problema di logistica, e investire invece nella capacità delle équipe operative di reggere la complessità senza scaricarla altrove. Servirebbe, soprattutto, tornare a leggere la storia biografica — l'anamnesi sociale e psicologica — di ogni ragazzo come il punto di partenza obbligatorio di qualsiasi intervento. Non il reato, non il comportamento, non l'etichetta. La storia. Chi era prima. Cosa ha attraversato. Cosa potrebbe diventare, se qualcuno gli dedica il tempo e la competenza che merita.</p>
+      <p>Patrizio Gonnella, presidente di Antigone, lo dice con una chiarezza che non lascia spazio all'ambiguità: "C'è bisogno di fare un passo indietro, di tornare a quel modello educativo a cui l'Europa guardava con interesse, che mettendo il benessere supremo dei minori al centro di un percorso educativo, tentava la strada di un futuro possibile da costruire con loro, non accettando di perderli."</p>
+      <p>Con tutto il rispetto per chi lavora nelle forze dell'ordine, la sicurezza non si costruisce con le pattuglie in più. Si costruisce con più psicologi, educatori, assistenti sociali, con la scuola che funziona, con il lavoro che esiste, con il senso del futuro che torna possibile. E con qualcuno che resti. Perché educare significa stare, anche quando le cose si complicano, quando il ragazzo è difficile, anche quando sarebbe più semplice spostarlo altrove.</p>
+      <p>Caivano, due anni dopo, è ancora lì. Come prima, forse peggio, mentre ha prodotto un decreto che tende a isolare, criminalizzare e rinchiudere i minori, più che comprenderli e accompagnarli in un percorso di responsabilizzazione e cambiamento. La domanda è se lo Stato voglia davvero affrontare il problema, oppure continuare a offrire risposte che sembrano soluzioni senza esserlo.</p>
+    </div>
+    <div class="modal-footer">
+      dott. Massimo Andreoni, Psicologo coordinatore<br>
+      Fonti: ottavo Rapporto sulla Giustizia Minorile di Antigone (2026); vita.it, reportage e analisi 2023–2026; dati CNCA, Save the Children, Ministero del Lavoro e delle Politiche Sociali.
+    </div>
+  </div>
+</div>
+
 <script>
 function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
 document.querySelectorAll('.nav-links a').forEach(a=>{
@@ -1116,7 +1184,19 @@ function closeArticleModal(e,force){
     document.body.style.overflow='';
   }
 }
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeArticleModal(null,true)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeArticleModal(null,true);closeCaivanoModal(null,true)}});
+function openCaivanoModal(){
+  var m=document.getElementById('caivanoModal');
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  m.scrollTop=0;
+}
+function closeCaivanoModal(e,force){
+  if(force||e.target===document.getElementById('caivanoModal')){
+    document.getElementById('caivanoModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
 const sections=document.querySelectorAll('section[id]')
 const navLinks=document.querySelectorAll('.nav-links a')
 window.addEventListener('scroll',()=>{
@@ -1127,4 +1207,5 @@ window.addEventListener('scroll',()=>{
 </script>
 </body>
 </html>
+
 
