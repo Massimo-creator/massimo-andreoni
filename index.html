@@ -4,544 +4,616 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dott. Massimo Andreoni — Psicologo · Case Manager MSNA</title>
-<meta name="description" content="Dott. Massimo Andreoni — Psicologo clinico, Case Manager MSNA, Tutore volontario, Coordinatore di comunità educativa. Fondatore di EduCare.">
+<meta name="description" content="Dott. Massimo Andreoni — Psicologo clinico, Case Manager MSNA, Tutore volontario. Fondatore di EduCare.">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #1b4f6b;
-    --primary-dark: #0f3348;
-    --accent: #d4813a;
-    --accent-light: #f0a05a;
-    --green: #3a8b72;
-    --bg: #fafaf8;
-    --bg2: #f1ede8;
-    --text: #2a2a2a;
-    --text-light: #5a5a5a;
-    --white: #ffffff;
-    --border: #e0d9d0;
-    --shadow: 0 4px 24px rgba(0,0,0,0.08);
-    --radius: 12px;
-    --nav-h: 68px;
-  }
+:root {
+  --night:    #050C14;
+  --lapis:    #12395E;
+  --lapis2:   #1A5080;
+  --gold:     #C9982A;
+  --gold2:    #E8BC50;
+  --gold3:    #FBE08A;
+  --ember:    #C85A14;
+  --persian:  #1A7A64;
+  --parchment:#FBF5E4;
+  --parch2:   #F2E8D0;
+  --parch3:   #E8D8B8;
+  --text:     #1A0E02;
+  --textm:    #5A3E22;
+  --border:   #C8A86A;
+  --nav-h:    72px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Lato',sans-serif;background:var(--parchment);color:var(--text);line-height:1.75}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── ORNAMENT SVG inline ─────────────────── */
+.geo-divider{
+  display:flex;align-items:center;gap:0;
+  margin-bottom:18px;width:100%;
+}
+.geo-divider svg{flex-shrink:0}
+.geo-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
 
-  html { scroll-behavior: smooth; font-size: 16px; }
+/* ── NAV ─────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--nav-h);
+  background:var(--night);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;
+  border-bottom:1px solid rgba(201,152,42,0.35);
+  box-shadow:0 4px 40px rgba(0,0,0,0.6);
+}
+.nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-gem{
+  position:relative;width:44px;height:44px;flex-shrink:0;
+}
+.nav-gem svg{position:absolute;inset:0}
+.nav-name{
+  color:#FBF5E4;font-family:'Amiri',serif;font-size:17px;font-weight:400;
+  letter-spacing:0.5px;
+}
+.nav-name em{color:var(--gold2);font-style:italic}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+  color:rgba(251,245,228,0.6);text-decoration:none;
+  font-family:'Lato',sans-serif;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;
+  transition:color .2s;
+  padding-bottom:3px;border-bottom:1px solid transparent;
+}
+.nav-links a:hover{color:var(--gold2);border-bottom-color:var(--gold)}
+.nav-cta{
+  background:transparent!important;
+  border:1px solid var(--gold)!important;
+  color:var(--gold)!important;
+  padding:5px 16px!important;
+  transition:all .25s!important;
+}
+.nav-cta:hover{background:var(--gold)!important;color:var(--night)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--gold);border-radius:1px;transition:.3s}
 
-  body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-  }
+/* ── HERO ─────────────────────────────────── */
+#hero{
+  min-height:100vh;
+  background:var(--night);
+  display:flex;align-items:center;
+  padding:calc(var(--nav-h) + 70px) 40px 90px;
+  position:relative;overflow:hidden;
+}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    height: var(--nav-h);
-    background: rgba(27, 79, 107, 0.97);
-    backdrop-filter: blur(8px);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 40px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
-  }
+/* Glowing lantern blobs */
+#hero::before{
+  content:'';
+  position:absolute;top:20%;left:55%;
+  width:600px;height:600px;
+  background:radial-gradient(ellipse,rgba(200,90,20,.18) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+  animation:breathe 6s ease-in-out infinite;
+}
+#hero::after{
+  content:'';
+  position:absolute;top:40%;left:5%;
+  width:400px;height:400px;
+  background:radial-gradient(ellipse,rgba(26,122,100,.14) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+  animation:breathe 8s ease-in-out infinite reverse;
+}
+@keyframes breathe{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.15);opacity:.7}
+}
 
-  .nav-brand {
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none;
-  }
-  .nav-logo {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Arial', sans-serif;
-    font-weight: 800; font-size: 14px; color: white;
-    letter-spacing: -0.5px;
-  }
-  .nav-name {
-    color: white; font-size: 15px; font-weight: 400;
-    font-family: 'Georgia', serif;
-    letter-spacing: 0.3px;
-  }
-  .nav-name span { color: var(--accent-light); font-style: italic; }
+/* Big Islamic rosette behind photo */
+.hero-rosette{
+  position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  width:600px;height:600px;opacity:.07;
+  pointer-events:none;
+  animation:rotateSlow 80s linear infinite;
+}
+@keyframes rotateSlow{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
 
-  .nav-links {
-    display: flex; gap: 32px; list-style: none;
-  }
-  .nav-links a {
-    color: rgba(255,255,255,0.8); text-decoration: none;
-    font-family: 'Arial', sans-serif; font-size: 13px;
-    letter-spacing: 0.8px; text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent-light); }
+/* Bottom gold line */
+.hero-bottom-ornament{
+  position:absolute;bottom:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(to right,transparent 0%,var(--gold) 20%,var(--gold2) 50%,var(--gold) 80%,transparent 100%);
+}
 
-  .nav-cta {
-    background: var(--accent); color: white !important;
-    padding: 8px 18px; border-radius: 6px;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--accent-light) !important; color: white !important; }
+.hero-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;gap:80px;
+  width:100%;position:relative;z-index:2;
+}
+.hero-text{flex:1}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--gold2);
+  font-family:'Lato',sans-serif;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero-tag::before,.hero-tag::after{content:'❖';font-size:9px;color:var(--gold)}
 
-  /* HAMBURGER */
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; }
+.hero-name{
+  font-family:'Amiri',serif;
+  font-size:clamp(38px,5.5vw,68px);
+  color:#FBF5E4;font-weight:400;line-height:1.05;
+  margin-bottom:20px;
+}
+.hero-name .dott{
+  color:var(--gold2);font-size:.38em;display:block;
+  margin-bottom:8px;
+  font-family:'Lato',sans-serif;font-weight:300;
+  letter-spacing:4px;text-transform:uppercase;font-style:normal;
+}
+.hero-roles{
+  font-family:'Lato',sans-serif;
+  color:rgba(251,245,228,.55);font-size:15px;
+  margin-bottom:36px;line-height:2.1;font-weight:300;letter-spacing:.5px;
+}
+.hero-roles strong{color:rgba(251,245,228,.88);font-weight:400}
 
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, #1d6b82 100%);
-    display: flex; align-items: center;
-    padding: calc(var(--nav-h) + 60px) 40px 80px;
-    position: relative; overflow: hidden;
-  }
-  #hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.4;
-  }
-  .hero-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; gap: 80px;
-    width: 100%; position: relative;
-  }
-  .hero-text { flex: 1; }
-  .hero-tag {
-    display: inline-block;
-    background: rgba(212,129,58,0.2); border: 1px solid rgba(212,129,58,0.4);
-    color: var(--accent-light); padding: 6px 16px; border-radius: 20px;
-    font-family: 'Arial', sans-serif; font-size: 12px;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .hero-name {
-    font-size: clamp(36px, 5vw, 58px);
-    color: white; font-weight: 400; line-height: 1.15;
-    margin-bottom: 16px;
-  }
-  .hero-name .dott { color: var(--accent-light); font-size: 0.55em; display: block; margin-bottom: 4px; }
-  .hero-roles {
-    font-family: 'Arial', sans-serif;
-    color: rgba(255,255,255,0.7); font-size: 17px;
-    margin-bottom: 32px; line-height: 1.9;
-  }
-  .hero-roles strong { color: rgba(255,255,255,0.95); font-weight: 600; }
-  .hero-tagline {
-    font-size: 19px; color: rgba(255,255,255,0.85);
-    font-style: italic; margin-bottom: 48px;
-    border-left: 3px solid var(--accent); padding-left: 18px;
-    line-height: 1.6;
-  }
-  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--accent); color: white;
-    padding: 14px 32px; border-radius: 8px;
-    text-decoration: none; font-family: 'Arial', sans-serif;
-    font-size: 14px; font-weight: 600; letter-spacing: 0.5px;
-    transition: all 0.2s; display: inline-block;
-    box-shadow: 0 4px 16px rgba(212,129,58,0.3);
-  }
-  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
-  .btn-outline {
-    border: 1.5px solid rgba(255,255,255,0.4); color: white;
-    padding: 14px 32px; border-radius: 8px;
-    text-decoration: none; font-family: 'Arial', sans-serif;
-    font-size: 14px; letter-spacing: 0.5px;
-    transition: all 0.2s; display: inline-block;
-  }
-  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+.hero-tagline{
+  font-family:'Amiri',serif;font-style:italic;
+  font-size:19px;color:rgba(251,245,228,.78);
+  margin-bottom:52px;line-height:1.7;
+  padding-left:22px;
+  border-left:2px solid var(--gold);
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
+.btn-gold{
+  background:var(--gold);color:var(--night);
+  padding:12px 30px;
+  text-decoration:none;font-family:'Lato',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  transition:all .25s;display:inline-block;
+  box-shadow:0 4px 20px rgba(201,152,42,.35);
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,152,42,.5)}
+.btn-ghost{
+  border:1px solid rgba(201,152,42,.5);color:var(--gold2);
+  padding:12px 30px;text-decoration:none;
+  font-family:'Lato',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  transition:all .25s;display:inline-block;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.btn-ghost:hover{border-color:var(--gold2);background:rgba(201,152,42,.08)}
 
-  .btn-cv {
-    border: 1.5px solid rgba(255,255,255,0.4); color: white;
-    padding: 14px 32px; border-radius: 8px;
-    text-decoration: none; font-family: 'Arial', sans-serif;
-    font-size: 14px; letter-spacing: 0.5px;
-    transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-cv:hover { border-color: white; background: rgba(255,255,255,0.08); }
+/* ── PHOTO FRAME ── */
+.hero-photo-wrap{
+  flex-shrink:0;position:relative;width:300px;height:300px;
+}
+/* Rotating outer ring */
+.photo-ring{
+  position:absolute;inset:-20px;
+  border-radius:50%;
+  background:conic-gradient(
+    var(--gold) 0deg, transparent 15deg,
+    var(--gold) 22.5deg, transparent 37.5deg,
+    var(--gold) 45deg, transparent 60deg,
+    var(--gold) 67.5deg, transparent 82.5deg,
+    var(--gold) 90deg, transparent 105deg,
+    var(--gold) 112.5deg, transparent 127.5deg,
+    var(--gold) 135deg, transparent 150deg,
+    var(--gold) 157.5deg, transparent 172.5deg,
+    var(--gold) 180deg, transparent 195deg,
+    var(--gold) 202.5deg, transparent 217.5deg,
+    var(--gold) 225deg, transparent 240deg,
+    var(--gold) 247.5deg, transparent 262.5deg,
+    var(--gold) 270deg, transparent 285deg,
+    var(--gold) 292.5deg, transparent 307.5deg,
+    var(--gold) 315deg, transparent 330deg,
+    var(--gold) 337.5deg, transparent 352.5deg,
+    var(--gold) 360deg
+  );
+  opacity:.4;
+  animation:rotateSlow 25s linear infinite;
+}
+.photo-border{
+  position:absolute;inset:-8px;
+  border-radius:50%;
+  background:conic-gradient(var(--gold),var(--gold2),var(--ember),var(--gold),var(--gold2),var(--gold));
+  opacity:.6;
+}
+.hero-photo{
+  width:300px;height:300px;
+  border-radius:50%;overflow:hidden;
+  position:relative;z-index:2;
+  border:3px solid rgba(201,152,42,.3);
+  box-shadow:0 0 80px rgba(200,90,20,.3),inset 0 0 30px rgba(0,0,0,.3);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 
-  /* FOTO PLACEHOLDER */
-  .hero-photo {
-    width: 280px; height: 280px; flex-shrink: 0;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-    border: 3px solid rgba(255,255,255,0.2);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 8px;
-    position: relative; overflow: hidden;
-  }
-  .hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
-    display: none; /* nascosta finché non c'è foto */
-  }
-  .hero-photo-placeholder {
-    font-size: 80px; color: rgba(255,255,255,0.3);
-    line-height: 1;
-  }
-  .hero-photo-label {
-    font-family: 'Arial', sans-serif; font-size: 11px;
-    color: rgba(255,255,255,0.3); letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+/* ── SECTION ─────────────────────────────── */
+section{padding:100px 40px}
+.section-inner{max-width:1100px;margin:0 auto}
 
-  /* SEZIONI GENERALI */
-  section { padding: 96px 40px; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-tag {
-    font-family: 'Arial', sans-serif; font-size: 11px;
-    letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 12px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-tag::after {
-    content: ''; flex: 0 0 30px; height: 1.5px;
-    background: var(--accent); display: block;
-  }
-  .section-title {
-    font-size: clamp(28px, 3.5vw, 40px);
-    color: var(--primary); margin-bottom: 16px; font-weight: 400;
-  }
-  .section-subtitle {
-    font-size: 17px; color: var(--text-light);
-    max-width: 640px; margin-bottom: 56px;
-    line-height: 1.8;
-  }
+.section-tag{
+  font-family:'Lato',sans-serif;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px;
+  display:flex;align-items:center;gap:14px;
+}
+.section-tag::before{content:'❖';font-size:8px}
+.section-tag::after{content:'';flex:0 0 50px;height:1px;background:var(--gold)}
+.section-title{
+  font-family:'Amiri',serif;
+  font-size:clamp(30px,4vw,46px);
+  color:var(--lapis);margin-bottom:14px;font-weight:400;
+}
+.section-subtitle{
+  font-size:17px;color:var(--textm);
+  max-width:640px;margin-bottom:56px;
+  line-height:1.85;font-weight:300;
+}
 
-  /* CHI SONO */
-  #chi-sono { background: var(--white); }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: start;
-  }
-  .about-text p {
-    font-size: 17px; line-height: 1.85; color: var(--text);
-    margin-bottom: 20px;
-  }
-  .about-text p:last-child { margin-bottom: 0; }
-  .about-highlights {
-    display: flex; flex-direction: column; gap: 20px;
-    padding: 36px; background: var(--bg);
-    border-radius: var(--radius); border: 1px solid var(--border);
-  }
-  .about-highlights h3 {
-    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--accent); font-family: 'Arial', sans-serif;
-    margin-bottom: 8px;
-  }
-  .highlight-item {
-    display: flex; align-items: flex-start; gap: 16px;
-    padding-bottom: 20px; border-bottom: 1px solid var(--border);
-  }
-  .highlight-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .hi-icon {
-    width: 42px; height: 42px; flex-shrink: 0;
-    border-radius: 10px; background: var(--primary);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-  }
-  .hi-text strong {
-    display: block; font-size: 15px; color: var(--primary);
-    margin-bottom: 4px;
-  }
-  .hi-text span { font-size: 14px; color: var(--text-light); font-family: 'Arial', sans-serif; }
+/* ── CHI SONO ────────────────────────────── */
+#chi-sono{background:var(--parchment);position:relative;overflow:hidden}
+#chi-sono::before{
+  content:'';position:absolute;right:-100px;bottom:-100px;
+  width:500px;height:500px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100,10 L112,50 L152,28 L130,68 L170,80 L130,92 L152,132 L112,110 L100,150 L88,110 L48,132 L70,92 L30,80 L70,68 L48,28 L88,50 Z' fill='none' stroke='%23C9982A' stroke-width='1' opacity='0.15'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='%23C9982A' stroke-width='0.7' opacity='0.1'/%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='%23C9982A' stroke-width='0.7' opacity='0.1'/%3E%3C/svg%3E") center/contain no-repeat;
+  opacity:.6;pointer-events:none;
+}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{
+  font-size:17px;line-height:1.95;color:var(--text);
+  margin-bottom:24px;font-weight:300;
+}
+.about-text p:last-child{margin-bottom:0}
 
-  /* SERVIZI */
-  #servizi { background: var(--bg2); }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
-  }
-  .service-card {
-    background: var(--white); border-radius: var(--radius);
-    padding: 36px 32px; border: 1px solid var(--border);
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(27,79,107,0.1);
-    border-color: var(--primary);
-  }
-  .service-icon {
-    width: 52px; height: 52px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--primary), #1d6b82);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px; margin-bottom: 20px;
-  }
-  .service-card h3 {
-    font-size: 20px; color: var(--primary);
-    margin-bottom: 12px; font-weight: 400;
-  }
-  .service-card p {
-    font-size: 15px; color: var(--text-light);
-    line-height: 1.75; font-family: 'Arial', sans-serif;
-  }
-  .service-tag {
-    display: inline-block; margin-top: 20px;
-    font-family: 'Arial', sans-serif; font-size: 11px;
-    letter-spacing: 1px; text-transform: uppercase;
-    color: var(--accent); background: rgba(212,129,58,0.08);
-    padding: 4px 10px; border-radius: 4px;
-  }
+/* Panel with arch top */
+.about-panel{
+  background:var(--night);
+  position:relative;overflow:hidden;
+}
+.panel-arch{
+  width:100%;height:40px;
+  background:var(--night);
+  position:relative;
+}
+.panel-arch::before{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:40px;
+  background:var(--parchment);
+  border-radius:0 0 50% 50% / 0 0 60px 60px;
+}
+.panel-top-bar{
+  height:3px;
+  background:linear-gradient(to right,var(--gold) 0%,var(--gold2) 50%,var(--gold) 100%);
+}
+.panel-header{
+  padding:20px 28px 14px;
+  font-family:'Lato',sans-serif;font-size:10px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:10px;
+}
+.panel-header::before{content:'❖';font-size:8px}
+.hi-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:16px 28px;
+  border-top:1px solid rgba(201,152,42,.12);
+  transition:background .2s;
+}
+.hi-item:hover{background:rgba(201,152,42,.05)}
+.hi-icon{
+  width:42px;height:42px;flex-shrink:0;
+  border:1px solid rgba(201,152,42,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;background:rgba(201,152,42,.08);
+  position:relative;
+}
+/* Diamond corners on icon */
+.hi-icon::before,.hi-icon::after{
+  content:'';position:absolute;
+  width:6px;height:6px;background:var(--gold);
+  opacity:.5;
+}
+.hi-icon::before{top:-3px;left:-3px;transform:rotate(45deg)}
+.hi-icon::after{bottom:-3px;right:-3px;transform:rotate(45deg)}
 
-  /* EDUCARE */
-  #educare { background: var(--white); }
-  .educare-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center;
-  }
-  .educare-badge {
-    display: inline-flex; align-items: center; gap: 10px;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #1a4a7a, #2a8a5a);
-    padding: 10px 20px; border-radius: 8px;
-  }
-  .ec-logo {
-    width: 32px; height: 32px; border-radius: 7px;
-    background: rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Arial', sans-serif;
-    font-weight: 800; font-size: 11px; color: white;
-  }
-  .educare-badge span {
-    color: white; font-family: 'Arial', sans-serif;
-    font-size: 15px; font-weight: 600; letter-spacing: 0.5px;
-  }
-  .educare-text h2 {
-    font-size: clamp(24px, 3vw, 36px);
-    color: var(--primary); margin-bottom: 16px; font-weight: 400;
-  }
-  .educare-text p {
-    font-size: 16px; color: var(--text-light);
-    line-height: 1.8; margin-bottom: 16px;
-    font-family: 'Arial', sans-serif;
-  }
-  .educare-features {
-    display: flex; flex-direction: column; gap: 10px;
-    margin: 24px 0;
-  }
-  .ef-item {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Arial', sans-serif; font-size: 14px; color: var(--text);
-  }
-  .ef-item::before {
-    content: '✓'; color: var(--green);
-    font-weight: 700; font-size: 15px;
-    flex-shrink: 0;
-  }
-  .educare-cta {
-    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;
-  }
-  .btn-green {
-    background: linear-gradient(135deg, #1a4a7a, #2a8a5a);
-    color: white; padding: 13px 28px; border-radius: 8px;
-    text-decoration: none; font-family: 'Arial', sans-serif;
-    font-size: 14px; font-weight: 600;
-    transition: all 0.2s; box-shadow: 0 4px 16px rgba(26,74,122,0.2);
-  }
-  .btn-green:hover { opacity: 0.9; transform: translateY(-2px); }
-  .educare-visual {
-    background: linear-gradient(160deg, #0f3348, #1a4a7a, #1d7a5a);
-    border-radius: 16px; padding: 40px;
-    font-family: 'Arial', sans-serif;
-  }
-  .ev-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 28px;
-  }
-  .ev-title { color: rgba(255,255,255,0.7); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
-  .ev-dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; }
-  .ev-stat {
-    background: rgba(255,255,255,0.06); border-radius: 10px;
-    padding: 18px 20px; margin-bottom: 12px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .ev-stat-label { color: rgba(255,255,255,0.6); font-size: 13px; }
-  .ev-stat-value { color: white; font-size: 20px; font-weight: 700; }
-  .ev-modules {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px;
-  }
-  .ev-module {
-    background: rgba(255,255,255,0.06); border-radius: 8px;
-    padding: 10px 14px; font-size: 12px; color: rgba(255,255,255,0.7);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .ev-module span { font-size: 14px; }
+.hi-text strong{display:block;font-size:14px;color:var(--gold2);margin-bottom:3px;font-family:'Lato',sans-serif;font-weight:400;letter-spacing:.5px}
+.hi-text span{font-size:13px;color:rgba(251,245,228,.4);font-family:'Lato',sans-serif;font-weight:300}
+.hi-item:last-child{padding-bottom:22px}
 
-  /* ARTICOLI */
-  #articoli { background: var(--bg2); }
-  .articles-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
-  }
-  .article-card {
-    background: var(--white); border-radius: var(--radius);
-    overflow: hidden; border: 1px solid var(--border);
-    transition: all 0.3s; cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .article-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(27,79,107,0.1);
-  }
-  .article-img {
-    height: 180px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 52px; position: relative; overflow: hidden;
-  }
-  .article-img.art1 { background: linear-gradient(135deg, #8b6914, #c49a3a); }
-  .article-img.art2 { background: linear-gradient(135deg, #1b4f6b, #1d7a6a); }
-  .article-img.art3 { background: linear-gradient(135deg, #5a3070, #8a4090); }
-  .article-body { padding: 28px; }
-  .article-cat {
-    font-family: 'Arial', sans-serif; font-size: 11px;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 10px;
-  }
-  .article-card h3 {
-    font-size: 19px; color: var(--primary);
-    margin-bottom: 10px; font-weight: 400; line-height: 1.4;
-  }
-  .article-card p {
-    font-size: 14px; color: var(--text-light);
-    line-height: 1.7; font-family: 'Arial', sans-serif;
-    margin-bottom: 20px;
-  }
-  .article-meta {
-    font-family: 'Arial', sans-serif; font-size: 12px;
-    color: var(--text-light); display: flex;
-    align-items: center; gap: 6px;
-  }
-  .article-meta::before { content: '→'; color: var(--accent); }
+/* ── SERVIZI ─────────────────────────────── */
+#servizi{
+  position:relative;
+  background:var(--night);
+  overflow:hidden;
+}
+/* Full background star tessellation */
+#servizi::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50,8 L56,34 L80,22 L68,46 L94,50 L68,54 L80,78 L56,66 L50,92 L44,66 L20,78 L32,54 L6,50 L32,46 L20,22 L44,34 Z' fill='none' stroke='%23C9982A' stroke-width='0.6' opacity='0.1'/%3E%3Ccircle cx='50' cy='50' r='4' fill='rgba(201,152,42,0.06)'/%3E%3C/svg%3E");
+  background-size:100px 100px;
+}
+#servizi::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(200,90,20,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+#servizi .section-title{color:var(--gold2)}
+#servizi .section-subtitle{color:rgba(251,245,228,.5)}
 
-  /* CONTATTI */
-  #contatti { background: var(--white); }
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: start;
-  }
-  .contact-intro p {
-    font-size: 17px; color: var(--text-light);
-    line-height: 1.8; margin-bottom: 32px;
-  }
-  .contact-links { display: flex; flex-direction: column; gap: 16px; }
-  .contact-link {
-    display: flex; align-items: center; gap: 16px;
-    padding: 18px 22px; border-radius: 10px;
-    background: var(--bg); border: 1px solid var(--border);
-    text-decoration: none; transition: all 0.2s;
-  }
-  .contact-link:hover {
-    border-color: var(--primary);
-    background: rgba(27,79,107,0.04);
-    transform: translateX(4px);
-  }
-  .cl-icon {
-    width: 42px; height: 42px; border-radius: 10px;
-    background: var(--primary); display: flex;
-    align-items: center; justify-content: center;
-    font-size: 18px; flex-shrink: 0;
-  }
-  .cl-info strong {
-    display: block; color: var(--primary); font-size: 15px;
-    font-family: 'Arial', sans-serif;
-  }
-  .cl-info span { color: var(--text-light); font-family: 'Arial', sans-serif; font-size: 13px; }
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;
+  position:relative;z-index:1;
+}
+.service-card{
+  background:rgba(251,245,228,.03);
+  padding:0 0 30px 0;
+  border:1px solid rgba(201,152,42,.12);
+  border-top:none;
+  transition:all .35s;
+  position:relative;overflow:hidden;
+}
+/* Pointed arch top */
+.service-arch{
+  width:100%;height:50px;
+  background:rgba(251,245,228,.03);
+  clip-path:polygon(0 100%,15% 0%,50% 40%,85% 0%,100% 100%);
+  border-top:2px solid rgba(201,152,42,.4);
+  margin-bottom:20px;
+  transition:background .35s;
+}
+.service-card:hover{
+  background:rgba(201,152,42,.06);
+  border-color:rgba(201,152,42,.3);
+  transform:translateY(-4px);
+}
+.service-card:hover .service-arch{background:rgba(201,152,42,.1)}
+.service-card-inner{padding:0 28px}
+.service-icon{
+  font-size:28px;margin-bottom:18px;display:block;
+  filter:drop-shadow(0 0 8px rgba(200,90,20,.4));
+}
+.service-card h3{
+  font-family:'Amiri',serif;
+  font-size:21px;color:var(--gold2);
+  margin-bottom:12px;font-weight:400;
+}
+.service-card p{
+  font-size:14px;color:rgba(251,245,228,.45);
+  line-height:1.85;font-family:'Lato',sans-serif;font-weight:300;
+}
+.service-tag{
+  display:inline-block;margin-top:20px;
+  font-family:'Lato',sans-serif;font-size:10px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);
+  padding:3px 10px;border:1px solid rgba(201,152,42,.25);
+  background:rgba(201,152,42,.05);
+}
 
-  /* FORM */
-  .contact-form {
-    background: var(--bg); border-radius: var(--radius);
-    padding: 40px; border: 1px solid var(--border);
-  }
-  .contact-form h3 {
-    font-size: 22px; color: var(--primary);
-    margin-bottom: 24px; font-weight: 400;
-  }
-  .form-group { margin-bottom: 18px; }
-  .form-group label {
-    display: block; font-family: 'Arial', sans-serif;
-    font-size: 13px; color: var(--text-light);
-    margin-bottom: 6px; letter-spacing: 0.3px;
-  }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%; padding: 12px 16px;
-    border: 1.5px solid var(--border); border-radius: 8px;
-    font-family: 'Georgia', serif; font-size: 15px;
-    background: white; color: var(--text);
-    transition: border-color 0.2s; outline: none;
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--primary);
-  }
-  .form-group textarea { height: 120px; resize: vertical; }
-  .form-submit {
-    width: 100%; padding: 14px;
-    background: var(--primary); color: white;
-    border: none; border-radius: 8px; cursor: pointer;
-    font-family: 'Arial', sans-serif; font-size: 14px;
-    font-weight: 600; letter-spacing: 0.5px;
-    transition: all 0.2s; margin-top: 8px;
-  }
-  .form-submit:hover { background: var(--primary-dark); }
-  .form-success {
-    display: none; text-align: center; padding: 20px;
-    color: var(--green); font-size: 16px;
-  }
+/* ── EDUCARE ─────────────────────────────── */
+#educare{background:var(--parch2);position:relative;overflow:hidden}
+#educare::before{
+  content:'';position:absolute;left:-60px;top:50%;transform:translateY(-50%);
+  width:400px;height:400px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100,10 L112,50 L152,28 L130,68 L170,80 L130,92 L152,132 L112,110 L100,150 L88,110 L48,132 L70,92 L30,80 L70,68 L48,28 L88,50 Z' fill='none' stroke='%231A5080' stroke-width='1.5' opacity='0.12'/%3E%3C/svg%3E") center/contain no-repeat;
+  pointer-events:none;
+}
+.educare-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.educare-badge{
+  display:inline-flex;align-items:center;gap:12px;
+  margin-bottom:22px;
+  padding:8px 20px;
+  background:var(--lapis);
+  border:1px solid rgba(201,152,42,.3);
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.ec-logo{
+  width:28px;height:28px;border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Amiri',serif;font-size:12px;color:var(--gold);
+}
+.educare-badge span{color:#FBF5E4;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
+.educare-text h2{font-family:'Amiri',serif;font-size:clamp(24px,3vw,36px);color:var(--lapis);margin-bottom:18px;font-weight:400}
+.educare-text p{font-size:16px;color:var(--textm);line-height:1.9;margin-bottom:16px;font-family:'Lato',sans-serif;font-weight:300}
+.educare-features{display:flex;flex-direction:column;gap:0;margin:24px 0;background:var(--parchment);border:1px solid var(--parch3);border-top:2px solid var(--gold)}
+.ef-item{
+  display:flex;align-items:center;gap:14px;
+  font-family:'Lato',sans-serif;font-size:14px;color:var(--text);
+  padding:12px 18px;border-bottom:1px solid var(--parch3);font-weight:300;
+}
+.ef-item:last-child{border-bottom:none}
+.ef-item::before{content:'◆';color:var(--gold);font-size:8px;flex-shrink:0}
+.educare-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 
-  /* FOOTER */
-  footer {
-    background: var(--primary-dark); color: rgba(255,255,255,0.6);
-    padding: 48px 40px; font-family: 'Arial', sans-serif;
-  }
-  .footer-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 24px;
-  }
-  .footer-brand { display: flex; align-items: center; gap: 12px; }
-  .footer-logo {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: rgba(255,255,255,0.08);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 12px; color: rgba(255,255,255,0.5);
-  }
-  .footer-text { font-size: 13px; }
-  .footer-text strong { color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px; }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a {
-    color: rgba(255,255,255,0.5); text-decoration: none;
-    font-size: 13px; transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--accent-light); }
-  .footer-copy { font-size: 12px; width: 100%; text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+/* EduCare Visual — styled like a riad fountain screen */
+.educare-visual{
+  background:var(--night);
+  border:1px solid rgba(201,152,42,.2);
+  border-top:none;
+  font-family:'Lato',sans-serif;
+  position:relative;overflow:hidden;
+}
+.visual-arch-top{
+  width:100%;height:60px;
+  background:var(--night);
+  position:relative;
+}
+.visual-arch-top::before{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:var(--parch2);
+  border-radius:0 0 50% 50% / 0 0 80px 80px;
+}
+.visual-arch-top::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(to right,var(--gold) 0%,var(--gold2) 50%,var(--gold) 100%);
+}
+.visual-inner{padding:10px 32px 32px}
+.ev-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.ev-title{color:var(--gold);font-size:10px;letter-spacing:2.5px;text-transform:uppercase}
+.ev-dot{width:8px;height:8px;background:#2ecc71;border-radius:50%;box-shadow:0 0 8px rgba(46,204,113,.6)}
+.ev-stat{
+  background:rgba(201,152,42,.05);
+  border:1px solid rgba(201,152,42,.1);
+  padding:14px 18px;margin-bottom:8px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.ev-stat-label{color:rgba(251,245,228,.35);font-size:12px;font-weight:300}
+.ev-stat-value{color:var(--gold2);font-size:22px;font-family:'Amiri',serif}
+.ev-modules{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:14px}
+.ev-module{
+  background:rgba(201,152,42,.04);border:1px solid rgba(201,152,42,.08);
+  padding:9px 12px;font-size:12px;color:rgba(251,245,228,.4);
+  display:flex;align-items:center;gap:8px;font-weight:300;
+}
 
-  /* SCROLL TOP */
-  #scroll-top {
-    position: fixed; bottom: 28px; right: 28px;
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--accent); color: white; border: none;
-    font-size: 18px; cursor: pointer; opacity: 0;
-    transition: all 0.3s; z-index: 99;
-    box-shadow: 0 4px 16px rgba(212,129,58,0.3);
-  }
-  #scroll-top.visible { opacity: 1; }
-  #scroll-top:hover { background: var(--accent-light); transform: translateY(-2px); }
+/* ── ARTICOLI ────────────────────────────── */
+#articoli{background:var(--parchment);position:relative}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.article-card{
+  background:var(--parch2);
+  overflow:hidden;border:1px solid var(--parch3);
+  border-top:none;transition:all .3s;cursor:pointer;
+  position:relative;
+}
+.article-arch{
+  width:100%;height:160px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;font-size:50px;
+}
+.article-arch::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:30px;
+  background:var(--parch2);
+  border-radius:50% 50% 0 0 / 30px 30px 0 0;
+}
+.article-arch.art1{background:linear-gradient(160deg,#2A1400,#6B3A00)}
+.article-arch.art2{background:linear-gradient(160deg,#051818,#0A3838)}
+.article-arch.art3{background:linear-gradient(160deg,#1A0010,#5A1830)}
+.article-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(12,30,60,.15)}
+.article-body{padding:16px 24px 24px}
+.article-cat{font-family:'Lato',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.article-card h3{font-family:'Amiri',serif;font-size:20px;color:var(--lapis);margin-bottom:10px;font-weight:400;line-height:1.4}
+.article-card p{font-size:14px;color:var(--textm);line-height:1.75;font-family:'Lato',sans-serif;margin-bottom:18px;font-weight:300}
+.article-meta{font-family:'Lato',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.article-meta::before{content:'◆';font-size:7px}
 
-  /* MOBILE */
-  @media (max-width: 900px) {
-    nav { padding: 0 20px; }
-    .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--primary-dark); padding: 20px; gap: 4px; }
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .hamburger { display: flex; }
-    #hero { padding: calc(var(--nav-h) + 40px) 20px 60px; }
-    .hero-inner { flex-direction: column-reverse; gap: 40px; }
-    .hero-photo { width: 160px; height: 160px; }
-    .hero-photo-placeholder { font-size: 50px; }
-    section { padding: 64px 20px; }
-    .about-grid, .educare-inner, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .ev-modules { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-  }
+/* ── CONTATTI ────────────────────────────── */
+#contatti{background:var(--night);position:relative;overflow:hidden}
+#contatti::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40,6 L45,28 L64,18 L54,38 L76,40 L54,42 L64,62 L45,52 L40,74 L35,52 L16,62 L26,42 L4,40 L26,38 L16,18 L35,28 Z' fill='none' stroke='%23C9982A' stroke-width='0.5' opacity='0.07'/%3E%3C/svg%3E");
+  background-size:80px 80px;pointer-events:none;
+}
+#contatti .section-title{color:var(--gold2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:1}
+.contact-intro p{font-size:17px;color:rgba(251,245,228,.5);line-height:1.9;margin-bottom:32px;font-weight:300}
+.contact-links{display:flex;flex-direction:column;gap:10px}
+.contact-link{
+  display:flex;align-items:center;gap:16px;
+  padding:16px 20px;
+  background:rgba(201,152,42,.04);
+  border:1px solid rgba(201,152,42,.12);
+  border-left:3px solid var(--gold);
+  text-decoration:none;transition:all .25s;
+}
+.contact-link:hover{background:rgba(201,152,42,.09);border-left-color:var(--gold2);transform:translateX(8px)}
+.cl-icon{
+  width:40px;height:40px;flex-shrink:0;
+  border:1px solid rgba(201,152,42,.35);
+  background:rgba(201,152,42,.07);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.cl-info strong{display:block;color:var(--gold2);font-size:14px;font-family:'Lato',sans-serif;font-weight:400}
+.cl-info span{color:rgba(251,245,228,.35);font-family:'Lato',sans-serif;font-size:12px;font-weight:300}
+
+.contact-form{
+  background:rgba(201,152,42,.04);
+  padding:36px;
+  border:1px solid rgba(201,152,42,.15);
+  border-top:2px solid var(--gold);
+}
+.contact-form h3{font-family:'Amiri',serif;font-size:24px;color:var(--gold2);margin-bottom:26px;font-weight:400}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-family:'Lato',sans-serif;font-size:10px;color:rgba(201,152,42,.7);margin-bottom:6px;letter-spacing:2px;text-transform:uppercase}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:11px 15px;
+  border:1px solid rgba(201,152,42,.2);
+  font-family:'Lato',sans-serif;font-size:15px;
+  background:rgba(251,245,228,.04);color:rgba(251,245,228,.8);
+  transition:border-color .2s;outline:none;border-radius:0;font-weight:300;
+}
+.form-group select option{background:var(--night);color:rgba(251,245,228,.8)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,152,42,.1)}
+.form-group textarea{height:110px;resize:vertical}
+.form-submit{
+  width:100%;padding:13px;
+  background:var(--gold);color:var(--night);
+  border:none;cursor:pointer;
+  font-family:'Lato',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;
+  transition:all .25s;margin-top:6px;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.form-submit:hover{background:var(--gold2)}
+.form-success{display:none;text-align:center;padding:20px;color:var(--gold2);font-size:18px;font-family:'Amiri',serif;font-style:italic}
+
+/* ── FOOTER ──────────────────────────────── */
+footer{
+  background:var(--night);
+  border-top:1px solid rgba(201,152,42,.2);
+  padding:48px 40px 30px;
+  font-family:'Lato',sans-serif;
+  position:relative;
+}
+footer::before{
+  content:'❖ ◆ ❖ ◆ ❖ ◆ ❖ ◆ ❖ ◆ ❖ ◆ ❖ ◆ ❖';
+  display:block;text-align:center;
+  color:rgba(201,152,42,.15);font-size:9px;
+  letter-spacing:8px;margin-bottom:32px;
+}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.footer-brand{display:flex;align-items:center;gap:14px}
+.footer-gem{width:32px;height:32px;flex-shrink:0}
+.footer-text{font-size:13px;font-weight:300;color:rgba(251,245,228,.3)}
+.footer-text strong{color:rgba(251,245,228,.6);display:block;margin-bottom:2px;font-weight:400;letter-spacing:.5px}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(251,245,228,.25);text-decoration:none;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:var(--gold2)}
+.footer-copy{font-size:12px;width:100%;text-align:center;color:rgba(251,245,228,.15);margin-top:28px;padding-top:22px;border-top:1px solid rgba(201,152,42,.08);letter-spacing:.5px}
+
+/* ── SCROLL TOP ──────────────────────────── */
+#scroll-top{
+  position:fixed;bottom:28px;right:28px;width:44px;height:44px;
+  background:var(--gold);color:var(--night);border:none;
+  font-size:16px;cursor:pointer;opacity:0;
+  transition:all .3s;z-index:99;
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  box-shadow:0 4px 20px rgba(201,152,42,.4);
+}
+#scroll-top.visible{opacity:1}
+#scroll-top:hover{background:var(--gold2);transform:translateY(-3px)}
+
+/* ── MOBILE ──────────────────────────────── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--night);border-top:1px solid rgba(201,152,42,.2);padding:20px;gap:4px}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid rgba(201,152,42,.08)}
+  .hamburger{display:flex}
+  #hero{padding:calc(var(--nav-h) + 40px) 20px 60px}
+  .hero-inner{flex-direction:column-reverse;gap:40px}
+  .hero-photo-wrap,.hero-photo{width:200px;height:200px}
+  section{padding:64px 20px}
+  .about-grid,.educare-inner,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .ev-modules{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .btn-gold,.btn-ghost{clip-path:none}
+  .form-submit{clip-path:none}
+  .hero-rosette{display:none}
+}
 </style>
 </head>
 <body>
@@ -549,8 +621,14 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-brand">
-    <div class="nav-logo">MA</div>
-    <span class="nav-name">Massimo Andreoni · <span>Psicologo</span></span>
+    <div class="nav-gem">
+      <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="40" height="40" stroke="rgba(201,152,42,0.4)" stroke-width="1"/>
+        <rect x="8" y="8" width="28" height="28" stroke="rgba(201,152,42,0.25)" stroke-width="0.8" transform="rotate(45 22 22)"/>
+        <text x="22" y="27" text-anchor="middle" fill="rgba(201,152,42,0.8)" font-family="Amiri,serif" font-size="13">MA</text>
+      </svg>
+    </div>
+    <span class="nav-name">Massimo Andreoni · <em>Psicologo</em></span>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#chi-sono">Chi sono</a></li>
@@ -567,6 +645,27 @@
 
 <!-- HERO -->
 <section id="hero">
+  <!-- Rotating giant rosette -->
+  <svg class="hero-rosette" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="300" cy="300" r="295" stroke="#C9982A" stroke-width="0.8"/>
+    <circle cx="300" cy="300" r="240" stroke="#C9982A" stroke-width="0.5"/>
+    <circle cx="300" cy="300" r="180" stroke="#C9982A" stroke-width="0.5"/>
+    <circle cx="300" cy="300" r="120" stroke="#C9982A" stroke-width="0.8"/>
+    <!-- 16-pointed star -->
+    <path d="M300,5 L315,145 L410,55 L350,175 L490,140 L395,240 L495,300 L395,360 L490,460 L350,425 L410,545 L315,455 L300,595 L285,455 L190,545 L250,425 L110,460 L205,360 L105,300 L205,240 L110,140 L250,175 L190,55 L285,145 Z" stroke="#C9982A" stroke-width="0.8" fill="none"/>
+    <!-- 8-pointed inner star -->
+    <path d="M300,120 L325,220 L415,145 L370,235 L460,210 L390,280 L460,320 L390,340 L450,420 L360,380 L350,470 L300,400 L250,470 L240,380 L150,420 L210,340 L140,320 L210,280 L140,210 L230,235 L185,145 L275,220 Z" stroke="#C9982A" stroke-width="0.6" fill="none"/>
+    <!-- Inner details -->
+    <polygon points="300,180 340,260 420,260 360,310 385,390 300,345 215,390 240,310 180,260 260,260" stroke="#C9982A" stroke-width="0.5" fill="none"/>
+    <circle cx="300" cy="300" r="50" stroke="#C9982A" stroke-width="0.8"/>
+    <circle cx="300" cy="300" r="25" stroke="#C9982A" stroke-width="1"/>
+    <!-- Radiating lines -->
+    <line x1="300" y1="5" x2="300" y2="595" stroke="#C9982A" stroke-width="0.3" opacity="0.5"/>
+    <line x1="5" y1="300" x2="595" y2="300" stroke="#C9982A" stroke-width="0.3" opacity="0.5"/>
+    <line x1="90" y1="90" x2="510" y2="510" stroke="#C9982A" stroke-width="0.3" opacity="0.5"/>
+    <line x1="510" y1="90" x2="90" y2="510" stroke="#C9982A" stroke-width="0.3" opacity="0.5"/>
+  </svg>
+
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-tag">Profilo professionale</div>
@@ -583,15 +682,21 @@
         "Al fianco dei minori stranieri non accompagnati e delle comunità educative — con strumenti psicologici, umani e digitali."
       </p>
       <div class="hero-ctas">
-        <a href="#servizi" class="btn-primary">I miei servizi</a>
-        <a href="#contatti" class="btn-outline">Scrivimi</a>
-        <a href="cv_andreoni.pdf" download="CV_Massimo_Andreoni.pdf" class="btn-cv">📄 Scarica CV</a>
+        <a href="#servizi" class="btn-gold">I miei servizi</a>
+        <a href="#contatti" class="btn-ghost">Scrivimi</a>
+        <a href="cv_andreoni.pdf" download="CV_Massimo_Andreoni.pdf" class="btn-ghost">📄 Scarica CV</a>
       </div>
     </div>
-    <div class="hero-photo" id="photoContainer">
-      <img src="222760685.jpg" alt="Dott. Massimo Andreoni" style="display:block;">
+
+    <div class="hero-photo-wrap">
+      <div class="photo-ring"></div>
+      <div class="photo-border"></div>
+      <div class="hero-photo">
+        <img src="222760685.jpg" alt="Dott. Massimo Andreoni">
+      </div>
     </div>
   </div>
+  <div class="hero-bottom-ornament"></div>
 </section>
 
 <!-- CHI SONO -->
@@ -605,30 +710,32 @@
         <p>Credo che un approccio psicologico fondato debba partire proprio dalla formazione e dallo studio, e poi tradursi in strumenti concreti, relazioni autentiche e processi che funzionano. Ogni minore che accompagno ha una storia unica — e merita un percorso costruito su misura.</p>
         <p>Da questa convinzione è nato <strong>EduCare</strong>, la piattaforma gestionale che ho progettato per semplificare il lavoro delle comunità educative in Italia: procedure più agili, più tempo da dedicare alle persone.</p>
       </div>
-      <div class="about-highlights">
-        <h3>Ruoli e competenze</h3>
-        <div class="highlight-item">
+      <div class="about-panel">
+        <div class="panel-top-bar"></div>
+        <div class="panel-arch"></div>
+        <div class="panel-header">Ruoli e competenze</div>
+        <div class="hi-item">
           <div class="hi-icon">🧠</div>
           <div class="hi-text">
             <strong>Psicologo clinico</strong>
             <span>Psicologo abilitato · Colloqui individuali, familiari e supervisione d'équipe</span>
           </div>
         </div>
-        <div class="highlight-item">
+        <div class="hi-item">
           <div class="hi-icon">🌍</div>
           <div class="hi-text">
             <strong>Case Manager MSNA</strong>
             <span>Minori stranieri non accompagnati · Progetto migratorio individualizzato</span>
           </div>
         </div>
-        <div class="highlight-item">
+        <div class="hi-item">
           <div class="hi-icon">🤝</div>
           <div class="hi-text">
             <strong>Tutore Volontario</strong>
             <span>Tribunale per i Minorenni · Rappresentanza legale e accompagnamento</span>
           </div>
         </div>
-        <div class="highlight-item">
+        <div class="hi-item">
           <div class="hi-icon">🏠</div>
           <div class="hi-text">
             <strong>Coordinatore CEM</strong>
@@ -643,59 +750,80 @@
 <!-- SERVIZI -->
 <section id="servizi">
   <div class="section-inner">
-    <div class="section-tag">Servizi</div>
+    <div class="section-tag" style="color:var(--gold2)">Servizi</div>
     <h2 class="section-title">Come posso aiutarti</h2>
     <p class="section-subtitle">Lavoro con enti, comunità, famiglie e istituzioni che si occupano di minori in situazioni di vulnerabilità.</p>
     <div class="services-grid">
 
       <div class="service-card">
-        <div class="service-icon">🌍</div>
-        <h3>Case Management MSNA</h3>
-        <p>Presa in carico globale del minore straniero non accompagnato: analisi del bisogno, progetto migratorio, raccordo con servizi sociali, questura, SAI e avvocati. Supporto continuativo nelle fasi di regolarizzazione.</p>
-        <span class="service-tag">Minori stranieri</span>
+        <div class="service-arch"></div>
+        <div class="service-card-inner">
+          <span class="service-icon">🌍</span>
+          <h3>Case Management MSNA</h3>
+          <p>Presa in carico globale del minore straniero non accompagnato: analisi del bisogno, progetto migratorio, raccordo con servizi sociali, questura, SAI e avvocati.</p>
+          <span class="service-tag">Minori stranieri</span>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">⚖️</div>
-        <h3>Tutela Volontaria MSNA</h3>
-        <p>Affiancamento come tutore volontario nominato dal Tribunale per i Minorenni. Rappresentanza legale, accompagnamento ai procedimenti, protezione degli interessi del minore in ogni sede istituzionale.</p>
-        <span class="service-tag">Tutela legale</span>
+        <div class="service-arch"></div>
+        <div class="service-card-inner">
+          <span class="service-icon">⚖️</span>
+          <h3>Tutela Volontaria MSNA</h3>
+          <p>Affiancamento come tutore volontario nominato dal Tribunale per i Minorenni. Rappresentanza legale, accompagnamento ai procedimenti, protezione degli interessi del minore.</p>
+          <span class="service-tag">Tutela legale</span>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">🧠</div>
-        <h3>Supporto Psicologico</h3>
-        <p>Colloqui di sostegno psicologico per minori, operatori, famiglie affidatarie e gruppi d'équipe. Valutazione del funzionamento adattivo, elaborazione del trauma migratorio, supporto nelle transizioni e nelle crisi.</p>
-        <span class="service-tag">Psicologia clinica</span>
+        <div class="service-arch"></div>
+        <div class="service-card-inner">
+          <span class="service-icon">🧠</span>
+          <h3>Supporto Psicologico</h3>
+          <p>Colloqui di sostegno per minori, operatori, famiglie affidatarie e équipe. Valutazione adattiva, elaborazione del trauma migratorio, supporto nelle transizioni e nelle crisi.</p>
+          <span class="service-tag">Psicologia clinica</span>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">🏠</div>
-        <h3>Consulenza a Comunità Educative per Minori</h3>
-        <p>Supporto alla coordinazione di comunità educative residenziali per minori (infanzia e adolescenza): impostazione dei PEI, organizzazione dell'équipe, raccordo con gli enti collocanti, ottimizzazione dei processi gestionali con EduCare.</p>
-        <span class="service-tag">Comunità educative</span>
+        <div class="service-arch"></div>
+        <div class="service-card-inner">
+          <span class="service-icon">🏠</span>
+          <h3>Consulenza a Comunità Educative per Minori</h3>
+          <p>Supporto alla coordinazione di comunità residenziali per minori: PEI, organizzazione équipe, raccordo con enti collocanti, ottimizzazione gestionale con EduCare.</p>
+          <span class="service-tag">Comunità educative</span>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">💻</div>
-        <h3>Colloquio Psicologico Online</h3>
-        <p>Consulenze psicologiche individuali in videochiamata per minori, adulti, operatori e famiglie. Flessibile, accessibile da qualsiasi luogo, su appuntamento.</p>
-        <a href="https://wa.me/393271564679" target="_blank" style="display:inline-block;margin-top:16px;background:var(--accent);color:white;padding:10px 20px;border-radius:8px;text-decoration:none;font-family:'Arial',sans-serif;font-size:13px;font-weight:600;">📅 Prenota colloquio</a>
-        <span class="service-tag" style="display:block;margin-top:10px;">Online · Su appuntamento</span>
+        <div class="service-arch"></div>
+        <div class="service-card-inner">
+          <span class="service-icon">💻</span>
+          <h3>Colloquio Psicologico Online</h3>
+          <p>Consulenze individuali in videochiamata per minori, adulti, operatori e famiglie. Flessibile, accessibile da qualsiasi luogo, su appuntamento.</p>
+          <a href="https://wa.me/393271564679" target="_blank" style="display:inline-block;margin-top:16px;background:var(--gold);color:var(--night);padding:9px 20px;text-decoration:none;font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)">📅 Prenota colloquio</a>
+          <span class="service-tag" style="display:block;margin-top:10px">Online · Su appuntamento</span>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">📋</div>
-        <h3>Relazioni e Documentazione</h3>
-        <p>Redazione di relazioni psicosociali per Tribunale, Prefettura, Questura e servizi sociali. Documentazione strutturata secondo i requisiti normativi vigenti e le linee guida ministeriali.</p>
-        <span class="service-tag">Documentazione istituzionale</span>
+        <div class="service-arch"></div>
+        <div class="service-card-inner">
+          <span class="service-icon">📋</span>
+          <h3>Relazioni e Documentazione</h3>
+          <p>Redazione di relazioni psicosociali per Tribunale, Prefettura, Questura e servizi sociali. Documentazione strutturata secondo i requisiti normativi vigenti.</p>
+          <span class="service-tag">Documentazione istituzionale</span>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">🎓</div>
-        <h3>Formazione e Supervisione</h3>
-        <p>Percorsi formativi per équipe educative su: gestione delle crisi, comunicazione interculturale, PEI e strumenti di valutazione. Supervisione di gruppo per operatori di comunità.</p>
-        <span class="service-tag">Formazione</span>
+        <div class="service-arch"></div>
+        <div class="service-card-inner">
+          <span class="service-icon">🎓</span>
+          <h3>Formazione e Supervisione</h3>
+          <p>Percorsi formativi per équipe educative su gestione delle crisi, comunicazione interculturale, PEI. Supervisione di gruppo per operatori di comunità.</p>
+          <span class="service-tag">Formazione</span>
+        </div>
       </div>
 
     </div>
@@ -714,7 +842,7 @@
         </div>
         <h2>La piattaforma gestionale per le comunità educative</h2>
         <p>Ho costruito EduCare perché conoscevo il problema dall'interno: troppo tempo perso in fogli Excel, troppi documenti sparsi, troppa energia sottratta al lavoro con i minori.</p>
-        <p>EduCare è un gestionale web pensato per le comunità educative residenziali italiane. Permette di centralizzare fascicoli, turni, logbook, PEI, acquisti, comunicazioni — tutto in un'unica piattaforma sicura e accessibile.</p>
+        <p>EduCare è un gestionale web pensato per le comunità educative residenziali italiane: fascicoli, turni, logbook, PEI, acquisti, comunicazioni — tutto in un'unica piattaforma sicura.</p>
         <div class="educare-features">
           <div class="ef-item">Fascicoli minori con PEI e rete relazionale</div>
           <div class="ef-item">Pianificazione turni e mansionario</div>
@@ -724,34 +852,28 @@
           <div class="ef-item">Agenda riunioni e attività con i minori</div>
         </div>
         <div class="educare-cta">
-          <a href="https://edu-gestionale.netlify.app" target="_blank" class="btn-green">Accedi alla piattaforma</a>
-          <a href="#contatti" class="btn-outline" style="color:var(--primary); border-color:var(--border);">Richiedi una demo</a>
+          <a href="https://edu-gestionale.netlify.app" target="_blank" class="btn-gold">Accedi alla piattaforma</a>
+          <a href="#contatti" style="display:inline-block;padding:12px 28px;border:1px solid var(--border);color:var(--lapis);text-decoration:none;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700">Richiedi una demo</a>
         </div>
       </div>
       <div class="educare-visual">
-        <div class="ev-header">
-          <div class="ev-title">Dashboard EduCare</div>
-          <div class="ev-dot"></div>
-        </div>
-        <div class="ev-stat">
-          <span class="ev-stat-label">Minori in carico</span>
-          <span class="ev-stat-value">8</span>
-        </div>
-        <div class="ev-stat">
-          <span class="ev-stat-label">Operatori attivi</span>
-          <span class="ev-stat-value">5</span>
-        </div>
-        <div class="ev-stat">
-          <span class="ev-stat-label">Turni questo mese</span>
-          <span class="ev-stat-value">24</span>
-        </div>
-        <div class="ev-modules">
-          <div class="ev-module"><span>📋</span> Fascicoli</div>
-          <div class="ev-module"><span>📅</span> Turni</div>
-          <div class="ev-module"><span>📓</span> Logbook</div>
-          <div class="ev-module"><span>💬</span> Chat</div>
-          <div class="ev-module"><span>🛒</span> Acquisti</div>
-          <div class="ev-module"><span>🍽️</span> Menu</div>
+        <div class="visual-arch-top"></div>
+        <div class="visual-inner">
+          <div class="ev-header">
+            <div class="ev-title">Dashboard EduCare</div>
+            <div class="ev-dot"></div>
+          </div>
+          <div class="ev-stat"><span class="ev-stat-label">Minori in carico</span><span class="ev-stat-value">8</span></div>
+          <div class="ev-stat"><span class="ev-stat-label">Operatori attivi</span><span class="ev-stat-value">5</span></div>
+          <div class="ev-stat"><span class="ev-stat-label">Turni questo mese</span><span class="ev-stat-value">24</span></div>
+          <div class="ev-modules">
+            <div class="ev-module"><span>📋</span> Fascicoli</div>
+            <div class="ev-module"><span>📅</span> Turni</div>
+            <div class="ev-module"><span>📓</span> Logbook</div>
+            <div class="ev-module"><span>💬</span> Chat</div>
+            <div class="ev-module"><span>🛒</span> Acquisti</div>
+            <div class="ev-module"><span>🍽️</span> Menu</div>
+          </div>
         </div>
       </div>
     </div>
@@ -767,7 +889,7 @@
     <div class="articles-grid">
 
       <div class="article-card">
-        <div class="article-img art1">🏺</div>
+        <div class="article-arch art1">🏺</div>
         <div class="article-body">
           <div class="article-cat">Antropologia</div>
           <h3>Il Satiro Danzante di Mazara del Vallo</h3>
@@ -777,7 +899,7 @@
       </div>
 
       <div class="article-card">
-        <div class="article-img art2">🌍</div>
+        <div class="article-arch art2">🌍</div>
         <div class="article-body">
           <div class="article-cat">MSNA · Tutela</div>
           <h3>Il progetto migratorio individualizzato</h3>
@@ -787,7 +909,7 @@
       </div>
 
       <div class="article-card">
-        <div class="article-img art3">🧠</div>
+        <div class="article-arch art3">🧠</div>
         <div class="article-body">
           <div class="article-cat">Psicologia clinica</div>
           <h3>Trauma migratorio e resilienza nei minori</h3>
@@ -803,7 +925,7 @@
 <!-- CONTATTI -->
 <section id="contatti">
   <div class="section-inner">
-    <div class="section-tag">Contatti</div>
+    <div class="section-tag" style="color:var(--gold2)">Contatti</div>
     <h2 class="section-title">Parliamo</h2>
     <div class="contact-grid">
       <div class="contact-intro">
@@ -811,31 +933,19 @@
         <div class="contact-links">
           <a href="tel:+393271564679" class="contact-link">
             <div class="cl-icon">📞</div>
-            <div class="cl-info">
-              <strong>327 156 4679</strong>
-              <span>Chiamata · anche WhatsApp</span>
-            </div>
+            <div class="cl-info"><strong>327 156 4679</strong><span>Chiamata · anche WhatsApp</span></div>
           </a>
           <a href="https://wa.me/393271564679" target="_blank" class="contact-link">
             <div class="cl-icon">💬</div>
-            <div class="cl-info">
-              <strong>Scrivimi su WhatsApp</strong>
-              <span>Rispondo entro 24 ore · Prenota colloquio</span>
-            </div>
+            <div class="cl-info"><strong>Scrivimi su WhatsApp</strong><span>Rispondo entro 24 ore · Prenota colloquio</span></div>
           </a>
           <a href="mailto:andreonimassi@gmail.com" class="contact-link">
             <div class="cl-icon">✉️</div>
-            <div class="cl-info">
-              <strong>andreonimassi@gmail.com</strong>
-              <span>Email principale</span>
-            </div>
+            <div class="cl-info"><strong>andreonimassi@gmail.com</strong><span>Email principale</span></div>
           </a>
           <a href="https://edu-gestionale.netlify.app" target="_blank" class="contact-link">
             <div class="cl-icon">🖥️</div>
-            <div class="cl-info">
-              <strong>edu-gestionale.netlify.app</strong>
-              <span>Piattaforma EduCare</span>
-            </div>
+            <div class="cl-info"><strong>edu-gestionale.netlify.app</strong><span>Piattaforma EduCare</span></div>
           </a>
         </div>
       </div>
@@ -869,9 +979,7 @@
           </div>
           <button type="submit" class="form-submit">Invia messaggio →</button>
         </form>
-        <div class="form-success" id="formSuccess">
-          ✓ Messaggio ricevuto! Ti rispondo presto.
-        </div>
+        <div class="form-success" id="formSuccess">❖ Messaggio ricevuto! Ti rispondo presto. ❖</div>
       </div>
     </div>
   </div>
@@ -881,7 +989,11 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo">MA</div>
+      <svg class="footer-gem" viewBox="0 0 32 32" fill="none">
+        <rect x="1" y="1" width="30" height="30" stroke="rgba(201,152,42,0.3)" stroke-width="0.8"/>
+        <rect x="6" y="6" width="20" height="20" stroke="rgba(201,152,42,0.2)" stroke-width="0.6" transform="rotate(45 16 16)"/>
+        <text x="16" y="21" text-anchor="middle" fill="rgba(201,152,42,0.4)" font-family="Amiri,serif" font-size="10">MA</text>
+      </svg>
       <div class="footer-text">
         <strong>Dott. Massimo Andreoni</strong>
         Psicologo · Case Manager MSNA · Fondatore di EduCare
@@ -896,53 +1008,32 @@
     </div>
   </div>
   <div class="footer-inner">
-    <div class="footer-copy">
-      © 2026 Dott. Massimo Andreoni — Tutti i diritti riservati
-    </div>
+    <div class="footer-copy">© 2026 Dott. Massimo Andreoni — Tutti i diritti riservati</div>
   </div>
 </footer>
 
 <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  // Nav mobile
-  function toggleNav() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
-  // Chiudi nav cliccando un link
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      document.getElementById('navLinks').classList.remove('open');
-    });
-  });
-
-  // Scroll top button
-  window.addEventListener('scroll', () => {
-    const btn = document.getElementById('scroll-top');
-    btn.classList.toggle('visible', window.scrollY > 400);
-  });
-
-  // Form submit (placeholder — da collegare a un backend o Netlify Forms)
-  function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
-
-  // Active nav link on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current
-        ? 'rgba(255,255,255,1)'
-        : '';
-    });
-  });
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'))
+})
+window.addEventListener('scroll',()=>{
+  document.getElementById('scroll-top').classList.toggle('visible',window.scrollY>400)
+})
+function submitForm(e){
+  e.preventDefault()
+  document.getElementById('contactForm').style.display='none'
+  document.getElementById('formSuccess').style.display='block'
+}
+const sections=document.querySelectorAll('section[id]')
+const navLinks=document.querySelectorAll('.nav-links a')
+window.addEventListener('scroll',()=>{
+  let current=''
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.id})
+  navLinks.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+current?'rgba(232,188,80,1)':''})
+})
 </script>
 </body>
 </html>
