@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bauman diagnostica il presente: perché le speranze collettive hanno smesso di guardare al futuro. Una lettura di Retrotopia.">
+<meta property="og:title" content="Retrotopia. Quando il sogno smette di guardare avanti.">
+<meta property="og:description" content="Bauman diagnostica il presente: perché le speranze collettive hanno smesso di guardare al futuro e si sono voltate verso un passato idealizzato — mai davvero esistito così come lo ricordiamo.">
+<meta property="og:type" content="article">
+<title>Retrotopia — Massimo Andreoni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night:     #050C14;
+    --lapis:     #12395E;
+    --gold:      #C9982A;
+    --gold2:     #E8BC50;
+    --parchment: #FBF5E4;
+    --parch2:    #F2E8D0;
+    --text:      #1A0E02;
+    --textm:     #5A3E22;
+    --border:    #C8A86A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--parchment);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 1.85;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--night);
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .site-logo {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--gold2);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .site-back {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+  .site-back:hover { opacity: 1; }
+
+  /* HERO ARTICOLO */
+  .article-hero {
+    background: var(--night);
+    padding: 64px 32px 56px;
+    text-align: center;
+  }
+  .article-cat {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .article-title {
+    font-family: 'Amiri', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    color: #f0e8d4;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 680px;
+    margin: 0 auto 20px;
+  }
+  .article-subtitle {
+    font-size: 15px;
+    color: rgba(240,232,212,0.55);
+    font-style: italic;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .article-meta-bar {
+    margin-top: 32px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(201,152,42,0.6);
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* CORPO */
+  .article-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text);
+    margin-bottom: 22px;
+    font-weight: 300;
+  }
+
+  .article-body p strong {
+    font-weight: 400;
+    color: var(--lapis);
+  }
+
+  .article-body p em {
+    font-style: italic;
+    color: var(--textm);
+  }
+
+  .sezione-titolo {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--lapis);
+    font-weight: 400;
+    margin: 48px 0 18px;
+    line-height: 1.3;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    opacity: 0.4;
+    margin: 40px 0;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--gold);
+    margin: 32px 0;
+    padding: 12px 24px;
+    background: var(--parch2);
+  }
+  blockquote p {
+    font-style: italic;
+    font-size: 17px !important;
+    color: var(--lapis) !important;
+    margin-bottom: 6px !important;
+  }
+  blockquote cite {
+    font-size: 12px;
+    color: var(--textm);
+    letter-spacing: 1px;
+  }
+
+  /* FOOTER */
+  .article-footer {
+    background: var(--parch2);
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .article-footer p {
+    font-size: 13px;
+    color: var(--textm);
+    margin-bottom: 8px;
+  }
+  .article-footer a {
+    color: var(--lapis);
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .article-footer a:hover { color: var(--gold); }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 28px;
+    border: 1px solid var(--border);
+    color: var(--lapis);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .2s;
+  }
+  .back-link:hover {
+    background: var(--lapis);
+    color: var(--parchment);
+    border-color: var(--lapis);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="https://massimo-andreoni.netlify.app" class="site-logo">MA</a>
+  <a href="https://massimo-andreoni.netlify.app/#articoli" class="site-back">← Tutti gli articoli</a>
+</header>
+
+<div class="article-hero">
+  <div class="article-cat">Sociologia · Filosofia</div>
+  <h1 class="article-title">Retrotopia. Quando il sogno smette di guardare avanti.</h1>
+  <p class="article-subtitle">Una lettura di <em>Retrotopia</em> di Zygmunt Bauman (Laterza, 2017)</p>
+  <div class="article-meta-bar">Massimo Andreoni &nbsp;·&nbsp; Aprile 2026</div>
+</div>
+
+<article class="article-body">
+
+  <p>Negli ultimi anni si è fatto largo un modo di parlare di politica che una volta sarebbe sembrato bizzarro: i programmi elettorali che promettono di "tornare", i leader che invocano un passato da ripristinare, i movimenti che costruiscono la loro identità attorno a qualcosa di perduto. Non è una peculiarità italiana. È un fenomeno globale che ha un nome preciso — e quel nome l'ha dato Zygmunt Bauman nell'ultimo libro che ha completato prima di morire, nel 2017.</p>
+
+  <p>Si chiama retrotopia.</p>
+
+  <p>Bauman prende le mosse da Tommaso Moro, che nel 1516 inventò la parola utopia — letteralmente, "nessun luogo". Da allora, per cinque secoli, le grandi speranze collettive hanno guardato avanti: verso un futuro immaginato, costruito, conquistato. Il progresso era la direzione. Ogni generazione si aspettava di lasciare ai figli un mondo migliore di quello ricevuto.</p>
+
+  <p>Qualcosa si è invertito. Le speranze collettive non guardano più avanti. Guardano indietro. Non verso un futuro immaginato, ma verso un passato perduto — idealizzato, mitizzato, ripulito dai suoi lati oscuri. La retrotopia non è nostalgia nel senso romantico del termine: è nostalgia diventata forza politica, forza organizzativa, forza identitaria.</p>
+
+  <hr class="divider">
+  <h2 class="sezione-titolo">I quattro ritorni</h2>
+
+  <p>Bauman articola questa diagnosi in quattro movimenti. Il primo è il <strong>ritorno a Hobbes</strong>. Hobbes, nel Seicento, immaginava lo stato di natura come una guerra di tutti contro tutti — un orrore da cui solo il contratto sociale ci salva, cedendo parte della nostra libertà in cambio di protezione. Bauman osserva che quella logica si sta riattivando: quando le istituzioni sembrano incapaci di garantire sicurezza, lo straniero, il vicino, il diverso tornano a essere percepiti come minacce. La paura ridiventa privata, e quindi facile da manipolare.</p>
+
+  <p>Il secondo è il <strong>ritorno alle tribù</strong>. In un mondo che si frammenta, la tribù promette quello che il mondo liquido non riesce a dare: confini chiari, appartenenza, un "noi" riconoscibile. I nazionalismi, i populismi, le chiusure identitarie non sono regressioni primitive — sono risposte modernissime a un bisogno reale di ancoraggio. Il problema è che funzionano solo escludendo. La tribù si definisce sempre per sottrazione: noi siamo quelli che non sono loro.</p>
+
+  <p>Il terzo è il <strong>ritorno alla disuguaglianza</strong>. Il grande progetto novecentesco — welfare, redistribuzione, istruzione pubblica come ascensore sociale — sta arretrando. E con lui arretra qualcosa di più sottile: la speranza. In Francia il 90% dei genitori ritiene che i propri figli vivranno peggio di loro. In Australia il 53%. Le percentuali variano, ma la direzione è la stessa ovunque. La speranza di progresso generazionale, che per due secoli ha tenuto in piedi l'idea stessa di futuro, si è spenta.</p>
+
+  <p>Il quarto è il <strong>ritorno al grembo</strong>. È forse il più intimo: il desiderio di rifugiarsi in comunità chiuse, omogenee, protette. Un luogo prima dell'esposizione al mondo — dove ci si conosce tutti, le regole sono implicite, non bisogna negoziare la propria identità ogni giorno. Bauman lo chiama "grembo" perché è la metafora di uno spazio prima del rischio, prima della differenza, prima dell'altro. È un sogno potente. Ed è, come tutti i sogni, qualcosa che non è mai esistito esattamente così.</p>
+
+  <hr class="divider">
+  <h2 class="sezione-titolo">Nostalgia riflessiva e nostalgia restauratrice</h2>
+
+  <p>C'è una distinzione che vale la pena tenere, che Bauman fa propria dalla ricercatrice Svetlana Boym: quella tra nostalgia riflessiva e nostalgia restauratrice. La prima usa il passato come specchio, sa che sta proiettando, resta critica. La seconda vuole davvero tornare indietro — e per farlo costruisce miti, esclude, si chiude. È la seconda che sta diventando la grammatica politica del nostro tempo.</p>
+
+  <p><em>Retrotopia</em> non offre soluzioni. Sarebbe disonesto farlo. Bauman chiude con un appello al dialogo come unica alternativa praticabile — non perché sia facile, ma perché il contrario ha un nome che conosciamo.</p>
+
+  <blockquote>
+    <p>Noi, abitanti umani della Terra, siamo in una situazione di aut aut: possiamo scegliere se prenderci per mano o finire in una fossa comune.</p>
+    <cite>— Zygmunt Bauman, Retrotopia (2017)</cite>
+  </blockquote>
+
+  <p>Non è retorica. È una diagnosi. E le diagnosi, quando sono accurate, fanno un certo effetto.</p>
+
+</article>
+
+<footer class="article-footer">
+  <p>Massimo Andreoni — Psicologo clinico, coordinatore di comunità educativa</p>
+  <a href="mailto:andreonimassi@gmail.com">andreonimassi@gmail.com</a>
+  <br>
+  <a href="https://massimo-andreoni.netlify.app" class="back-link">Torna al sito</a>
+</footer>
+
+</body>
+</html>
