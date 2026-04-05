@@ -37,27 +37,18 @@
   /* HEADER */
   .site-header {
     background: var(--night);
-    padding: 18px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 14px 32px;
+    text-align: center;
   }
   .site-logo {
     font-family: 'Amiri', serif;
-    font-size: 20px;
+    font-size: 18px;
     color: var(--gold2);
     text-decoration: none;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    pointer-events: none;
   }
-  .site-back {
-    font-family: 'Lato', sans-serif;
-    font-size: 12px;
-    color: var(--gold);
-    text-decoration: none;
-    letter-spacing: 1px;
-    opacity: 0.8;
-  }
-  .site-back:hover { opacity: 1; }
 
   /* HERO ARTICOLO */
   .article-hero {
@@ -176,30 +167,26 @@
   }
   .article-footer a:hover { color: var(--gold); }
 
-  .back-link {
+  .contact-btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 10px 28px;
-    border: 1px solid var(--border);
-    color: var(--lapis);
+    padding: 12px 32px;
+    background: var(--lapis);
+    color: var(--parchment);
     font-size: 12px;
     letter-spacing: 2px;
     text-decoration: none;
     text-transform: uppercase;
-    transition: all .2s;
+    transition: background .2s;
+    font-family: 'Lato', sans-serif;
   }
-  .back-link:hover {
-    background: var(--lapis);
-    color: var(--parchment);
-    border-color: var(--lapis);
-  }
+  .contact-btn:hover { background: var(--lapis2, #1A5080); }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a href="https://massimo-andreoni.netlify.app" class="site-logo">MA</a>
-  <a href="https://massimo-andreoni.netlify.app/#articoli" class="site-back">← Tutti gli articoli</a>
+  <span class="site-logo">Massimo Andreoni</span>
 </header>
 
 <div class="article-hero">
@@ -248,9 +235,8 @@
 
 <footer class="article-footer">
   <p>Massimo Andreoni — Psicologo clinico, coordinatore di comunità educativa</p>
-  <a href="mailto:andreonimassi@gmail.com">andreonimassi@gmail.com</a>
-  <br>
-  <a href="https://massimo-andreoni.netlify.app" class="back-link">Torna al sito</a>
+  <p style="margin-top:6px; font-size:13px; color:var(--textm)">Hai domande o vuoi approfondire? Scrivimi.</p>
+  <a href="mailto:andreonimassi@gmail.com" class="contact-btn">Scrivimi</a>
 </footer>
 
 </body>
