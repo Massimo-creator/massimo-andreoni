@@ -936,6 +936,16 @@ footer::before{
         </div>
       </div>
 
+      <div class="article-card clickable" onclick="openRetrotopiaModal()">
+        <div class="article-arch art2">📖</div>
+        <div class="article-body">
+          <div class="article-cat">Sociologia · Filosofia</div>
+          <h3>Retrotopia. Quando il sogno smette di guardare avanti</h3>
+          <p>Bauman diagnostica il presente: perché le speranze collettive hanno smesso di guardare al futuro e si sono voltate verso un passato idealizzato — mai davvero esistito così come lo ricordiamo.</p>
+          <div class="article-meta">Leggi l'articolo · Aprile 2026</div>
+        </div>
+      </div>
+
       <div class="article-card clickable" onclick="openArticleModal()">
         <div class="article-arch art4">🏗️</div>
         <div class="article-body">
@@ -1053,6 +1063,34 @@ footer::before{
 <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- MODAL ARTICOLO: L'identità come cantiere aperto -->
+<div class="article-modal-overlay" id="retrotopiaModal" onclick="closeRetrotopiaModal(event)">
+  <div class="article-modal">
+    <button class="modal-close" onclick="closeRetrotopiaModal(null,true)" aria-label="Chiudi">✕</button>
+    <div class="modal-cat">Sociologia · Filosofia · Aprile 2026</div>
+    <h2 class="modal-title">Retrotopia. Quando il sogno smette di guardare avanti</h2>
+    <p class="modal-subtitle">Una lettura di <em>Retrotopia</em> di Zygmunt Bauman (Laterza, 2017)</p>
+    <hr class="modal-divider">
+    <div class="modal-body">
+      <p>Negli ultimi anni si è fatto largo un modo di parlare di politica che una volta sarebbe sembrato bizzarro: i programmi elettorali che promettono di "tornare", i leader che invocano un passato da ripristinare, i movimenti che costruiscono la loro identità attorno a qualcosa di perduto. Non è una peculiarità italiana. È un fenomeno globale che ha un nome preciso — e quel nome l'ha dato Zygmunt Bauman nell'ultimo libro che ha completato prima di morire, nel 2017.</p>
+      <p>Si chiama retrotopia.</p>
+      <p>Bauman prende le mosse da Tommaso Moro, che nel 1516 inventò la parola utopia — letteralmente, "nessun luogo". Da allora, per cinque secoli, le grandi speranze collettive hanno guardato avanti: verso un futuro immaginato, costruito, conquistato. Il progresso era la direzione. Ogni generazione si aspettava di lasciare ai figli un mondo migliore di quello ricevuto.</p>
+      <p>Qualcosa si è invertito. Le speranze collettive non guardano più avanti. Guardano indietro. Non verso un futuro immaginato, ma verso un passato perduto — idealizzato, mitizzato, ripulito dai suoi lati oscuri. La retrotopia non è nostalgia nel senso romantico del termine: è nostalgia diventata forza politica, forza organizzativa, forza identitaria.</p>
+      <hr class="modal-divider">
+      <p class="modal-section-title">I quattro ritorni</p>
+      <p>Bauman articola questa diagnosi in quattro movimenti. Il primo è il <strong>ritorno a Hobbes</strong>. Hobbes, nel Seicento, immaginava lo stato di natura come una guerra di tutti contro tutti — un orrore da cui solo il contratto sociale ci salva, cedendo parte della nostra libertà in cambio di protezione. Bauman osserva che quella logica si sta riattivando: quando le istituzioni sembrano incapaci di garantire sicurezza, lo straniero, il vicino, il diverso tornano a essere percepiti come minacce. La paura ridiventa privata, e quindi facile da manipolare.</p>
+      <p>Il secondo è il <strong>ritorno alle tribù</strong>. In un mondo che si frammenta, la tribù promette quello che il mondo liquido non riesce a dare: confini chiari, appartenenza, un "noi" riconoscibile. I nazionalismi, i populismi, le chiusure identitarie non sono regressioni primitive — sono risposte modernissime a un bisogno reale di ancoraggio. Il problema è che funzionano solo escludendo. La tribù si definisce sempre per sottrazione: noi siamo quelli che non sono loro.</p>
+      <p>Il terzo è il <strong>ritorno alla disuguaglianza</strong>. Il grande progetto novecentesco — welfare, redistribuzione, istruzione pubblica come ascensore sociale — sta arretrando. E con lui arretra qualcosa di più sottile: la speranza. In Francia il 90% dei genitori ritiene che i propri figli vivranno peggio di loro. In Australia il 53%. Le percentuali variano, ma la direzione è la stessa ovunque. La speranza di progresso generazionale, che per due secoli ha tenuto in piedi l'idea stessa di futuro, si è spenta.</p>
+      <p>Il quarto è il <strong>ritorno al grembo</strong>. È forse il più intimo: il desiderio di rifugiarsi in comunità chiuse, omogenee, protette. Un luogo prima dell'esposizione al mondo — dove ci si conosce tutti, le regole sono implicite, non bisogna negoziare la propria identità ogni giorno. Bauman lo chiama "grembo" perché è la metafora di uno spazio prima del rischio, prima della differenza, prima dell'altro. È un sogno potente. Ed è, come tutti i sogni, qualcosa che non è mai esistito esattamente così.</p>
+      <hr class="modal-divider">
+      <p class="modal-section-title">Nostalgia riflessiva e nostalgia restauratrice</p>
+      <p>C'è una distinzione che vale la pena tenere, che Bauman fa propria dalla ricercatrice Svetlana Boym: quella tra nostalgia riflessiva e nostalgia restauratrice. La prima usa il passato come specchio, sa che sta proiettando, resta critica. La seconda vuole davvero tornare indietro — e per farlo costruisce miti, esclude, si chiude. È la seconda che sta diventando la grammatica politica del nostro tempo.</p>
+      <p><em>Retrotopia</em> non offre soluzioni. Sarebbe disonesto farlo. Bauman chiude con un appello al dialogo come unica alternativa praticabile — non perché sia facile, ma perché il contrario ha un nome che conosciamo. La frase finale del libro è questa: «Noi, abitanti umani della Terra, siamo in una situazione di aut aut: possiamo scegliere se prenderci per mano o finire in una fossa comune.»</p>
+      <p>Non è retorica. È una diagnosi. E le diagnosi, quando sono accurate, fanno un certo effetto.</p>
+    </div>
+    <div class="modal-footer">Massimo Andreoni · Aprile 2026 · Lettura di <em>Retrotopia</em>, Zygmunt Bauman, Laterza 2017</div>
+  </div>
+</div>
+
 <div class="article-modal-overlay" id="articleModal" onclick="closeArticleModal(event)">
   <div class="article-modal">
     <button class="modal-close" onclick="closeArticleModal(null,true)" aria-label="Chiudi">✕</button>
@@ -1172,6 +1210,18 @@ function submitForm(e){
   document.getElementById('contactForm').style.display='none'
   document.getElementById('formSuccess').style.display='block'
 }
+function openRetrotopiaModal(){
+  var m=document.getElementById('retrotopiaModal');
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  m.scrollTop=0;
+}
+function closeRetrotopiaModal(e,force){
+  if(force||e.target===document.getElementById('retrotopiaModal')){
+    document.getElementById('retrotopiaModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
 function openArticleModal(){
   var m=document.getElementById('articleModal');
   m.classList.add('open');
@@ -1184,7 +1234,7 @@ function closeArticleModal(e,force){
     document.body.style.overflow='';
   }
 }
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeArticleModal(null,true);closeCaivanoModal(null,true)}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeRetrotopiaModal(null,true);closeArticleModal(null,true);closeCaivanoModal(null,true)}});
 function openCaivanoModal(){
   var m=document.getElementById('caivanoModal');
   m.classList.add('open');
@@ -1207,5 +1257,6 @@ window.addEventListener('scroll',()=>{
 </script>
 </body>
 </html>
+
 
 
