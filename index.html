@@ -631,25 +631,25 @@ footer::before{
   .btn-gold,.btn-ghost{clip-path:none}
   .form-submit{clip-path:none}
   .hero-rosette{display:none}
-  .libro-layout{grid-template-columns:1fr}
-  .libro-cover-wrap{display:flex;justify-content:center}
-  .libro-cover{max-width:220px}
+  .libri-grid{justify-content:center}
+  .libro-card{width:100%;max-width:320px}
 }
 
-/* ── SEZIONE LIBRO ── */
-#libro{background:var(--night);position:relative;overflow:hidden}
-#libro .section-title{color:var(--gold2)}
-#libro .section-subtitle{color:rgba(251,245,228,.55)}
-.libro-layout{display:grid;grid-template-columns:260px 1fr;gap:64px;align-items:start;margin-top:48px}
-.libro-cover-wrap{position:relative}
-.libro-cover{width:100%;max-width:260px;display:block;border-radius:3px;box-shadow:0 24px 64px rgba(0,0,0,.7),0 0 0 1px rgba(201,152,42,.25),inset 0 0 0 1px rgba(255,255,255,.05)}
-.libro-cover-wrap::after{content:'';position:absolute;bottom:-16px;left:10%;right:10%;height:24px;background:radial-gradient(ellipse,rgba(201,152,42,.3) 0%,transparent 70%);filter:blur(12px)}
-.libro-subtitle{font-family:'Amiri',serif;font-size:19px;color:var(--gold3);margin-bottom:28px;font-style:italic;line-height:1.5;border-left:3px solid var(--gold);padding-left:16px}
-.libro-text p{font-size:15px;color:rgba(251,245,228,.72);line-height:1.9;margin-bottom:14px;font-weight:300}
-.libro-parti{margin:28px 0 36px;display:flex;flex-direction:column;gap:10px}
-.libro-parte{display:flex;align-items:baseline;gap:12px}
-.libro-parte-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Lato',sans-serif;white-space:nowrap;flex-shrink:0}
-.libro-parte-testo{font-family:'Amiri',serif;font-size:17px;color:rgba(251,245,228,.9);font-style:italic}
+/* ── SEZIONE LIBRI ── */
+#libri{background:var(--night);position:relative;overflow:hidden}
+#libri .section-title{color:var(--gold2)}
+#libri .section-subtitle{color:rgba(251,245,228,.5)}
+.libri-grid{display:flex;flex-wrap:wrap;gap:28px;margin-top:48px;justify-content:flex-start}
+.libro-card{width:240px;flex-shrink:0;background:rgba(251,245,228,.03);border:1px solid rgba(201,152,42,.15);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
+.libro-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 0 1px rgba(201,152,42,.3)}
+.libro-card-img{padding:28px 28px 16px;display:flex;justify-content:center;align-items:flex-start;background:rgba(0,0,0,.18);position:relative}
+.libro-card-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:20px;background:linear-gradient(to bottom,transparent,rgba(5,12,20,.25))}
+.libro-card-img img{width:140px;display:block;border-radius:2px;box-shadow:0 10px 32px rgba(0,0,0,.65)}
+.libro-card-body{padding:20px 20px 24px;display:flex;flex-direction:column;flex:1;gap:0}
+.libro-card-cat{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Lato',sans-serif;margin-bottom:10px}
+.libro-card h3{font-family:'Amiri',serif;font-size:21px;color:var(--gold3);line-height:1.2;margin-bottom:8px;font-weight:400}
+.libro-card-sub{font-family:'Amiri',serif;font-size:13px;color:rgba(251,245,228,.5);font-style:italic;line-height:1.55;margin-bottom:20px;flex:1}
+.libro-card .btn-gold{font-size:11px;text-decoration:none;display:inline-block;clip-path:none;padding:8px 18px;height:auto}
 </style>
 </head>
 <body>
@@ -670,7 +670,7 @@ footer::before{
     <li><a href="#chi-sono">Chi sono</a></li>
     <li><a href="#servizi">Servizi</a></li>
     <li><a href="#educare">EduCare</a></li>
-    <li><a href="#libro">Il libro</a></li>
+    <li><a href="#libri">Libri</a></li>
     <li><a href="#articoli">Articoli</a></li>
     <li><a href="cv_andreoni.pdf" download="CV_Massimo_Andreoni.pdf">CV</a></li>
     <li><a href="#contatti" class="nav-cta">Contattami</a></li>
@@ -917,40 +917,28 @@ footer::before{
   </div>
 </section>
 
-<!-- LIBRO -->
-<section id="libro">
+<!-- LIBRI -->
+<section id="libri">
   <div class="section-inner">
-    <div class="section-tag">Il libro</div>
-    <h2 class="section-title">Nessuno parte da zero</h2>
-    <p class="section-subtitle">Merito, identità e cura educativa nei luoghi dove i ragazzi crescono davvero</p>
-    <div class="libro-layout">
+    <div class="section-tag">Pubblicazioni</div>
+    <h2 class="section-title">Libri</h2>
+    <p class="section-subtitle">Saggi sul lavoro educativo, la psicologia clinica e la tutela minorile.</p>
+    <div class="libri-grid">
 
-      <div class="libro-cover-wrap">
-        <img src="nessuno_parte_da_zero.jpg" alt="Copertina del libro Nessuno parte da zero di Massimo Andreoni" class="libro-cover">
-      </div>
-
-      <div class="libro-text">
-        <div class="libro-subtitle">Merito, identità e cura educativa nei luoghi dove i ragazzi crescono davvero</div>
-
-        <p>C'è una frase che chi lavora con i minori conosce bene: <em style="color:var(--gold3)">"Sono uno sfigato, non sono capace di niente."</em> Non è rassegnazione. È qualcosa di più preciso: è l'interiorizzazione di un verdetto. Qualcuno, da qualche parte, gliel'ha già detto come andrà a finire.</p>
-
-        <p>In due parti tra loro collegate, il saggio affronta due domande fondamentali per chiunque lavori educativamente con i minori: come si resiste, nella pratica quotidiana, alla logica meritocratica che trasforma ogni difficoltà in colpa individuale? E come si accompagna un adolescente nella costruzione di un'identità quando la sua storia è già stata interrotta, giudicata, ridotta a un'etichetta?</p>
-
-        <p>Un libro per educatori, psicologi, assistenti sociali, coordinatori di comunità e chiunque creda che il lavoro educativo sia, prima di tutto, un atto politico di cura.</p>
-
-        <div class="libro-parti">
-          <div class="libro-parte">
-            <span class="libro-parte-label">Parte Prima</span>
-            <span class="libro-parte-testo">Quando il merito diventa una gabbia</span>
-          </div>
-          <div class="libro-parte">
-            <span class="libro-parte-label">Parte Seconda</span>
-            <span class="libro-parte-testo">L'identità come cantiere aperto</span>
-          </div>
+      <!-- ── LIBRO 1 ── -->
+      <div class="libro-card">
+        <div class="libro-card-img">
+          <img src="nessuno_parte_da_zero.jpg" alt="Nessuno parte da zero — Massimo Andreoni">
         </div>
-
-        <a href="https://www.amazon.it/dp/B0GDYXP43W" class="btn-gold" target="_blank" rel="noopener noreferrer">Acquista su Amazon ↗</a>
+        <div class="libro-card-body">
+          <div class="libro-card-cat">Pedagogia · Psicologia clinica</div>
+          <h3>Nessuno parte da zero</h3>
+          <p class="libro-card-sub">Merito, identità e cura educativa nei luoghi dove i ragazzi crescono davvero</p>
+          <a href="https://www.amazon.it/dp/B0GDYXP43W" class="btn-gold" target="_blank" rel="noopener noreferrer">Acquista su Amazon ↗</a>
+        </div>
       </div>
+
+      <!-- ── AGGIUNGERE LIBRI QUI — copia il blocco .libro-card sopra ── -->
 
     </div>
   </div>
