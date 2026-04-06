@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///C:/Users/Dell/Downloads/freud_sogni.html -->
+<html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Interpretazione dei Sogni — Freud</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+
+  :root {
+    --ink: #1a1208;
+    --parchment: #f5eedd;
+    --amber: #c8863a;
+    --rust: #8b3a2a;
+    --shadow: #3d2b1f;
+    --gold: #d4a843;
+    --pale: #faf5e8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(200,134,58,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(139,58,42,0.06) 0%, transparent 50%);
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  header {
+    text-align: center;
+    padding: 3rem 2rem 1.5rem;
+    border-bottom: 1px solid rgba(200,134,58,0.3);
+    position: relative;
+  }
+
+  header::after {
+    content: '✦ ✦ ✦';
+    display: block;
+    color: var(--amber);
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    margin-top: 1rem;
+    opacity: 0.6;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--shadow);
+  }
+
+  h1 em {
+    color: var(--rust);
+    font-style: italic;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    font-weight: 300;
+  }
+
+  .year {
+    font-size: 0.85rem;
+    color: var(--shadow);
+    opacity: 0.5;
+    margin-top: 0.3rem;
+    font-style: italic;
+  }
+
+  /* Main layout */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 2rem auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--shadow);
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  /* Dream diagram */
+  .diagram-wrapper {
+    position: relative;
+    margin: 3rem 0;
+  }
+
+  .diagram-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .dream-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Layers */
+  .layers {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .layer {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+
+  .layer:hover { transform: scaleX(1.01); }
+
+  .layer-bar {
+    flex: 1;
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .layer-bar::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    transition: width 0.3s ease;
+  }
+
+  .layer.active .layer-bar::before { width: 100%; opacity: 0.08; }
+
+  /* Manifest layer */
+  .layer-manifest .layer-bar {
+    background: linear-gradient(135deg, rgba(200,134,58,0.15), rgba(200,134,58,0.05));
+    border-color: rgba(200,134,58,0.4);
+  }
+  .layer-manifest .layer-bar::before { background: var(--amber); }
+  .layer-manifest.active .layer-bar { border-color: var(--amber); box-shadow: 0 0 20px rgba(200,134,58,0.15); }
+
+  /* Latent layer */
+  .layer-latent .layer-bar {
+    background: linear-gradient(135deg, rgba(139,58,42,0.12), rgba(139,58,42,0.04));
+    border-color: rgba(139,58,42,0.3);
+  }
+  .layer-latent .layer-bar::before { background: var(--rust); }
+  .layer-latent.active .layer-bar { border-color: var(--rust); box-shadow: 0 0 20px rgba(139,58,42,0.15); }
+
+  /* Unconscious layer */
+  .layer-unconscious .layer-bar {
+    background: linear-gradient(135deg, rgba(61,43,31,0.2), rgba(61,43,31,0.08));
+    border-color: rgba(61,43,31,0.4);
+  }
+  .layer-unconscious .layer-bar::before { background: var(--shadow); }
+  .layer-unconscious.active .layer-bar { border-color: var(--shadow); box-shadow: 0 0 20px rgba(61,43,31,0.2); }
+
+  .layer-label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--shadow);
+  }
+
+  .layer-tagline {
+    font-size: 0.8rem;
+    font-style: italic;
+    opacity: 0.6;
+    margin-top: 0.2rem;
+  }
+
+  .layer-arrow {
+    font-size: 1rem;
+    opacity: 0.4;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .layer.active .layer-arrow {
+    opacity: 0.8;
+    transform: rotate(90deg);
+  }
+
+  /* Connector arrows */
+  .connector {
+    display: flex;
+    justify-content: center;
+    padding: 0.4rem 0;
+    position: relative;
+  }
+
+  .connector::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(200,134,58,0.3), rgba(139,58,42,0.3));
+  }
+
+  .connector-label {
+    background: var(--parchment);
+    padding: 0.15rem 0.6rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+  }
+
+  /* Panel */
+  .panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .panel.open {
+    max-height: 600px;
+    opacity: 1;
+  }
+
+  .panel-inner {
+    background: var(--pale);
+    border: 1px solid rgba(200,134,58,0.2);
+    border-top: none;
+    padding: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .panel-inner { grid-template-columns: 1fr; }
+  }
+
+  .panel-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(200,134,58,0.2);
+  }
+
+  .panel-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--shadow);
+  }
+
+  .panel-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .panel-section ul li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--shadow);
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+
+  .panel-section ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-weight: 300;
+  }
+
+  .panel-quote {
+    grid-column: 1 / -1;
+    border-left: 3px solid var(--amber);
+    padding: 0.8rem 1.2rem;
+    background: rgba(200,134,58,0.05);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--shadow);
+  }
+
+  /* Mechanisms section */
+  .mechanisms {
+    margin-top: 3rem;
+  }
+
+  .mechanisms h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--shadow);
+    margin-bottom: 0.4rem;
+  }
+
+  .mechanisms-sub {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--amber);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .mechs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    border: 1px solid rgba(200,134,58,0.25);
+    background: rgba(200,134,58,0.25);
+  }
+
+  .mech-card {
+    background: var(--pale);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    position: relative;
+  }
+
+  .mech-card:hover, .mech-card.active {
+    background: rgba(200,134,58,0.08);
+  }
+
+  .mech-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .mech-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--shadow);
+    margin-bottom: 0.4rem;
+  }
+
+  .mech-brief {
+    font-size: 0.8rem;
+    color: var(--shadow);
+    opacity: 0.6;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .mech-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .mech-detail.open {
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .mech-detail p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--shadow);
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(200,134,58,0.2);
+  }
+
+  .mech-example {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--rust);
+    opacity: 0.8;
+  }
+
+  /* Wish fulfillment visual */
+  .wish-section {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .wish-section { grid-template-columns: 1fr; }
+  }
+
+  .wish-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--shadow);
+    margin-bottom: 0.8rem;
+  }
+
+  .wish-text p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--shadow);
+    opacity: 0.85;
+  }
+
+  .wish-diagram {
+    position: relative;
+    height: 200px;
+  }
+
+  .wish-svg { width: 100%; height: 100%; }
+
+  /* Divider */
+  .ornament {
+    text-align: center;
+    color: var(--amber);
+    margin: 2.5rem 0;
+    font-size: 1rem;
+    letter-spacing: 1em;
+    opacity: 0.4;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(200,134,58,0.2);
+    font-size: 0.78rem;
+    color: var(--shadow);
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+  /* Animation */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .layer, .mech-card {
+    animation: fadeInUp 0.6s ease both;
+  }
+  .layer:nth-child(1) { animation-delay: 0.1s; }
+  .layer:nth-child(2) { animation-delay: 0.2s; }
+  .layer:nth-child(3) { animation-delay: 0.3s; }
+  .mech-card:nth-child(1) { animation-delay: 0.15s; }
+  .mech-card:nth-child(2) { animation-delay: 0.25s; }
+  .mech-card:nth-child(3) { animation-delay: 0.35s; }
+  .mech-card:nth-child(4) { animation-delay: 0.45s; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><em>Die Traumdeutung</em></h1>
+  <div class="subtitle">L'interpretazione dei sogni</div>
+  <div class="year">Sigmund Freud · 1899 (pubblicato 1900)</div>
+</header>
+
+<div class="container">
+
+  <p class="intro">
+    Il sogno non è rumore psichico casuale. È un testo cifrato che parla il linguaggio del desiderio inconscio — distorto, mascherato, ma sempre significante.
+  </p>
+
+  <!-- LAYER DIAGRAM -->
+  <div class="diagram-wrapper">
+    <div class="diagram-title">La struttura del sogno — clicca per esplorare</div>
+    <div class="dream-diagram">
+      <div class="layers">
+
+        <!-- MANIFEST -->
+        <div class="layer layer-manifest" id="l-manifest" onclick="toggleLayer(&#39;manifest&#39;)">
+          <div class="layer-bar">
+            <div class="layer-label">
+              <span class="layer-name">Contenuto Manifesto</span>
+              <span class="layer-tagline">ciò che il sognatore ricorda</span>
+            </div>
+            <span class="layer-arrow">›</span>
+          </div>
+        </div>
+        <div class="panel" id="p-manifest">
+          <div class="panel-inner">
+            <div class="panel-section">
+              <h4>Cos'è</h4>
+              <p>Il racconto del sogno così come emerge alla coscienza al risveglio: la sequenza di immagini, scene, personaggi, emozioni che il sognatore può riferire. È la superficie del testo onirico.</p>
+            </div>
+            <div class="panel-section">
+              <h4>Caratteristiche</h4>
+              <ul>
+                <li>Frammentato, illogico, bizzarro</li>
+                <li>Ricco di immagini visive e sensoriali</li>
+                <li>Spesso privo di coerenza narrativa</li>
+                <li>Soggetto all'elaborazione secondaria</li>
+              </ul>
+            </div>
+            <div class="panel-quote">
+              "Il sogno manifesto è come la facciata di un edificio — può essere ornata o scabra, ma non dice nulla della struttura portante che la sostiene."
+            </div>
+          </div>
+        </div>
+
+        <div class="connector">
+          <span class="connector-label">lavoro onirico ↓ interpretazione ↑</span>
+        </div>
+
+        <!-- LATENT -->
+        <div class="layer layer-latent" id="l-latent" onclick="toggleLayer(&#39;latent&#39;)">
+          <div class="layer-bar">
+            <div class="layer-label">
+              <span class="layer-name">Contenuto Latente</span>
+              <span class="layer-tagline">i pensieri nascosti del sogno</span>
+            </div>
+            <span class="layer-arrow">›</span>
+          </div>
+        </div>
+        <div class="panel" id="p-latent">
+          <div class="panel-inner">
+            <div class="panel-section">
+              <h4>Cos'è</h4>
+              <p>Il materiale psichico inconscio che il sogno esprime in forma distorta: desideri rimossi, conflitti irrisolti, ricordi infantili. È ciò che l'analisi deve portare alla luce attraverso le libere associazioni.</p>
+            </div>
+            <div class="panel-section">
+              <h4>Come si accede</h4>
+              <ul>
+                <li>Associazioni libere sugli elementi del sogno</li>
+                <li>Attenzione ai dettagli apparentemente insignificanti</li>
+                <li>Analisi dei simboli ricorrenti</li>
+                <li>Esplorazione del contesto emotivo del sognatore</li>
+              </ul>
+            </div>
+            <div class="panel-quote">
+              "I pensieri onirici latenti non sono affatto irrazionali in se stessi — è il lavoro onirico che li rende tali."
+            </div>
+          </div>
+        </div>
+
+        <div class="connector">
+          <span class="connector-label">rimozione ↓ ritorno del rimosso ↑</span>
+        </div>
+
+        <!-- UNCONSCIOUS -->
+        <div class="layer layer-unconscious" id="l-unconscious" onclick="toggleLayer(&#39;unconscious&#39;)">
+          <div class="layer-bar">
+            <div class="layer-label">
+              <span class="layer-name">Desiderio Inconscio</span>
+              <span class="layer-tagline">la forza motrice del sogno</span>
+            </div>
+            <span class="layer-arrow">›</span>
+          </div>
+        </div>
+        <div class="panel" id="p-unconscious">
+          <div class="panel-inner">
+            <div class="panel-section">
+              <h4>Cos'è</h4>
+              <p>La pulsione rimossa che fornisce l'energia al sogno. Per Freud ogni sogno è realizzazione (allucinatoria) di un desiderio inconscio — spesso di origine infantile, sessuale o aggressiva, incompatibile con la coscienza vigile.</p>
+            </div>
+            <div class="panel-section">
+              <h4>Proprietà dell'inconscio</h4>
+              <ul>
+                <li>Atemporal: passato e presente coesistono</li>
+                <li>Assenza di contraddizione logica</li>
+                <li>Processo primario: condensazione e spostamento</li>
+                <li>Principio di piacere come guida</li>
+              </ul>
+            </div>
+            <div class="panel-quote">
+              "Il sogno è la via regia per la conoscenza dell'inconscio nella vita psichica." — Freud, 1900
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament">✦ · · · ✦</div>
+
+  <!-- MECHANISMS -->
+  <div class="mechanisms">
+    <h2>Il Lavoro Onirico</h2>
+    <div class="mechanisms-sub">i quattro meccanismi di trasformazione</div>
+    <div class="mechs-grid">
+
+      <div class="mech-card" id="m-cond" onclick="toggleMech(&#39;cond&#39;)">
+        <span class="mech-icon">⊕</span>
+        <div class="mech-name">Condensazione</div>
+        <div class="mech-brief">più elementi in uno solo</div>
+        <div class="mech-detail" id="md-cond">
+          <p>Un singolo elemento del contenuto manifesto porta in sé molteplici pensieri latenti. Una persona nel sogno può condensare tratti di figure diverse (il padre, un collega, un personaggio letterario). È il meccanismo più pervasivo del lavoro onirico.</p>
+          <p class="mech-example">Esempio: sognare una persona con il volto della madre e la voce dell'analista.</p>
+        </div>
+      </div>
+
+      <div class="mech-card" id="m-spost" onclick="toggleMech(&#39;spost&#39;)">
+        <span class="mech-icon">→</span>
+        <div class="mech-name">Spostamento</div>
+        <div class="mech-brief">l'accento emotivo si trasferisce</div>
+        <div class="mech-detail" id="md-spost">
+          <p>Il carico affettivo si distacca dall'elemento significativo e si attacca a uno innocuo. Il vero centro emotivo del sogno appare periferico, e viceversa. Questo è il principale meccanismo di difesa che opera durante il sogno.</p>
+          <p class="mech-example">Esempio: un'intensa angoscia per un oggetto banale che maschera un conflitto con una persona cara.</p>
+        </div>
+      </div>
+
+      <div class="mech-card" id="m-rapp" onclick="toggleMech(&#39;rapp&#39;)">
+        <span class="mech-icon">◉</span>
+        <div class="mech-name">Rappresentabilità</div>
+        <div class="mech-brief">i pensieri diventano immagini</div>
+        <div class="mech-detail" id="md-rapp">
+          <p>Il pensiero astratto viene tradotto in immagini visive, sensoriali, concrete. Il sogno "pensa per immagini". Relazioni logiche (causa, contraddizione, temporalità) vengono trasformate in simultaneità spaziale o sequenza visiva.</p>
+          <p class="mech-example">Esempio: l'ambivalenza verso qualcuno si traduce in due luoghi separati del sogno.</p>
+        </div>
+      </div>
+
+      <div class="mech-card" id="m-elab" onclick="toggleMech(&#39;elab&#39;)">
+        <span class="mech-icon">∿</span>
+        <div class="mech-name">Elaborazione Secondaria</div>
+        <div class="mech-brief">la mente crea coerenza fittizia</div>
+        <div class="mech-detail" id="md-elab">
+          <p>Intervenendo in parte durante il sogno e in parte al risveglio, la mente cosciente riorganizza il materiale onirico per renderlo più narrativamente coerente. È questa elaborazione che produce il racconto del sogno — e che può tradire i contenuti latenti.</p>
+          <p class="mech-example">Esempio: la sensazione di "capire" la logica bizzarra del sogno solo mentre si sta sognando.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ornament">✦ · · · ✦</div>
+
+  <!-- WISH FULFILLMENT -->
+  <div class="wish-section">
+    <div class="wish-text">
+      <h2>Il sogno come realizzazione di desiderio</h2>
+      <p>Ogni sogno — anche quello angoscioso, anche quello di contenuto spiacevole — è per Freud la realizzazione allucinatoria di un desiderio inconscio rimosso. L'angoscia nel sogno indica che il meccanismo di censura non è riuscito a mascherare abbastanza: il desiderio è filtrato, ma la sua carica perturbante emerge comunque.</p>
+    </div>
+    <div class="wish-diagram">
+      <svg class="wish-svg" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background circles -->
+        <circle cx="150" cy="100" r="90" stroke="rgba(200,134,58,0.15)" stroke-width="1" stroke-dasharray="4 4"></circle>
+        <circle cx="150" cy="100" r="65" stroke="rgba(200,134,58,0.2)" stroke-width="1" stroke-dasharray="3 3"></circle>
+        <circle cx="150" cy="100" r="40" stroke="rgba(139,58,42,0.3)" stroke-width="1"></circle>
+        <circle cx="150" cy="100" r="18" fill="rgba(139,58,42,0.15)" stroke="var(--rust)" stroke-width="1.5"></circle>
+
+        <!-- Center: desire -->
+        <text x="150" y="97" text-anchor="middle" font-family="Playfair Display, serif" font-size="8" fill="var(--rust)" font-style="italic">desiderio</text>
+        <text x="150" y="108" text-anchor="middle" font-family="Playfair Display, serif" font-size="8" fill="var(--rust)" font-style="italic">rimosso</text>
+
+        <!-- Ring labels -->
+        <text x="150" y="47" text-anchor="middle" font-family="Crimson Pro, serif" font-size="7.5" fill="var(--shadow)" opacity="0.7">pensieri latenti</text>
+        <text x="150" y="165" text-anchor="middle" font-family="Crimson Pro, serif" font-size="7.5" fill="var(--shadow)" opacity="0.7">residui diurni</text>
+
+        <!-- Outer ring -->
+        <text x="150" y="22" text-anchor="middle" font-family="Crimson Pro, serif" font-size="7" fill="var(--amber)" opacity="0.8">contenuto manifesto</text>
+        <text x="150" y="186" text-anchor="middle" font-family="Crimson Pro, serif" font-size="7" fill="var(--amber)" opacity="0.8">racconto del sogno</text>
+
+        <!-- Side labels -->
+        <text x="42" y="103" text-anchor="middle" font-family="Crimson Pro, serif" font-size="7" fill="var(--shadow)" opacity="0.6" transform="rotate(-90 42 103)">censura</text>
+        <text x="258" y="103" text-anchor="middle" font-family="Crimson Pro, serif" font-size="7" fill="var(--shadow)" opacity="0.6" transform="rotate(90 258 103)">distorsione</text>
+
+        <!-- Arrows -->
+        <path d="M150 82 L150 68" stroke="var(--rust)" stroke-width="1" marker-end="url(#arr)"></path>
+        <path d="M150 118 L150 132" stroke="var(--amber)" stroke-width="1" marker-end="url(#arr2)" opacity="0.6"></path>
+
+        <defs>
+          <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="var(--rust)"></path>
+          </marker>
+          <marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="var(--amber)"></path>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Sigmund Freud · Die Traumdeutung (1900) · Grafico interattivo per uso didattico
+</footer>
+
+<script>
+  function toggleLayer(name) {
+    const layer = document.getElementById('l-' + name);
+    const panel = document.getElementById('p-' + name);
+    const isOpen = panel.classList.contains('open');
+
+    // Close all
+    ['manifest','latent','unconscious'].forEach(n => {
+      document.getElementById('l-' + n).classList.remove('active');
+      document.getElementById('p-' + n).classList.remove('open');
+    });
+
+    if (!isOpen) {
+      layer.classList.add('active');
+      panel.classList.add('open');
+    }
+  }
+
+  function toggleMech(name) {
+    const card = document.getElementById('m-' + name);
+    const detail = document.getElementById('md-' + name);
+    const isOpen = detail.classList.contains('open');
+
+    // Close all
+    ['cond','spost','rapp','elab'].forEach(n => {
+      document.getElementById('m-' + n).classList.remove('active');
+      document.getElementById('md-' + n).classList.remove('open');
+    });
+
+    if (!isOpen) {
+      card.classList.add('active');
+      detail.classList.add('open');
+    }
+  }
+</script>
+
+
+</body></html>
