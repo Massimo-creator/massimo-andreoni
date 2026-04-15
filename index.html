@@ -1027,23 +1027,16 @@ footer::before{
         </div>
       </div>
 
-      <div class="article-card">
-        <div class="article-arch art2">🌍</div>
-        <div class="article-body">
-          <div class="article-cat">MSNA · Tutela</div>
-          <h3>Il progetto migratorio individualizzato</h3>
-          <p>Strumenti psicologici e metodologie per costruire percorsi di integrazione efficaci con i minori stranieri non accompagnati.</p>
-          <div class="article-meta">In arrivo</div>
-        </div>
-      </div>
 
-      <div class="article-card">
-        <div class="article-arch art3">🧠</div>
+
+
+      <div class="article-card clickable" onclick="openPsicoModal()">
+        <div class="article-arch art2">🧠</div>
         <div class="article-body">
-          <div class="article-cat">Psicologia clinica</div>
-          <h3>Trauma migratorio e resilienza nei minori</h3>
-          <p>Come lavorare con i vissuti traumatici dei minori migranti: approcci clinici, strumenti di valutazione e cura della relazione terapeutica.</p>
-          <div class="article-meta">In arrivo</div>
+          <div class="article-cat">Comunità educativa · MSNA · Aprile 2026</div>
+          <h3>L'operatore educativo come agente terapeutico</h3>
+          <p>Rassegna internazionale evidence-based su TF-CBT, programma ABC e supervisione nelle CEM per MSNA. L'educatore non è il tramite verso la cura: è la cura.</p>
+          <div class="article-meta">Leggi l'articolo · Aprile 2026</div>
         </div>
       </div>
 
@@ -1355,7 +1348,7 @@ function closeArticleModal(e,force){
     document.body.style.overflow='';
   }
 }
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeRetrotopiaModal(null,true);closeArticleModal(null,true);closeCaivanoModal(null,true)}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeRetrotopiaModal(null,true);closeArticleModal(null,true);closeCaivanoModal(null,true);closePsicoModal(null,true)}});
 function openCaivanoModal(){
   var m=document.getElementById('caivanoModal');
   m.classList.add('open');
@@ -1365,6 +1358,18 @@ function openCaivanoModal(){
 function closeCaivanoModal(e,force){
   if(force||e.target===document.getElementById('caivanoModal')){
     document.getElementById('caivanoModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+function openPsicoModal(){
+  var m=document.getElementById('psicoModal');
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  m.scrollTop=0;
+}
+function closePsicoModal(e,force){
+  if(force||e.target===document.getElementById('psicoModal')){
+    document.getElementById('psicoModal').classList.remove('open');
     document.body.style.overflow='';
   }
 }
@@ -1474,8 +1479,49 @@ window.addEventListener('scroll',()=>{
   ]
 }
 </script>
+<div class="article-modal-overlay" id="psicoModal" onclick="closePsicoModal(event)">
+  <div class="article-modal">
+    <button class="modal-close" onclick="closePsicoModal(null,true)" aria-label="Chiudi">✕</button>
+    <div class="modal-cat">Comunità educativa · MSNA · Aprile 2026</div>
+    <h2 class="modal-title">L'operatore educativo come agente terapeutico</h2>
+    <p class="modal-subtitle">Ricerca internazionale e prassi nelle CEM per MSNA</p>
+    <hr class="modal-divider">
+    <div class="modal-body">
+      <p>C'è un momento preciso in cui si capisce se una comunità educativa funziona davvero. Non è il momento del colloquio d'ingresso, non è la riunione d'équipe, non è nemmeno la relazione al Tribunale per i Minorenni. È il momento in cui un ragazzo di sedici anni, arrivato tre mesi fa e ancora chiuso dentro qualcosa che non ha nome in nessuna delle lingue che conosce, risponde al buonasera dell'educatore di turno. Prima nessuno sguardo. Poi un monosillabo. Poi un giorno una frase. Poi, se tutto va bene, una domanda.</p>
+      <p>Quel percorso — silenzio, monosillabo, frase, domanda — non è il risultato di un protocollo. È il risultato di una presenza. E quella presenza, lo dice ormai un numero consistente di studi internazionali, non è solo un fatto relazionale: è un fatto clinico.</p>
+      <hr class="modal-divider">
+      <p class="modal-section-title">Quello che la ricerca ha misurato</p>
+      <p>Nel 2018 un gruppo di ricercatori della Duke University avviò in Kenya uno studio su 956 bambini orfani tra gli undici e i quattordici anni, molti con diagnosi di PTSD e lutto traumatico complicato. Il progetto si chiamava BASIC, Building and Sustaining Interventions for Children, e la domanda centrale non era "quale terapia funziona" — che sarebbe stata una domanda già risposta — ma qualcosa di più radicale: chi può erogare cura psicologica in contesti dove gli psicologi non esistono? E come si fa in modo che quella cura continui a funzionare dopo che i ricercatori se ne sono andati?</p>
+      <p>La risposta fu, nella sua semplicità, sistematicamente ignorata dai sistemi di welfare occidentali: insegnanti, volontari sanitari di comunità, persone senza formazione clinica pregressa, formate su un protocollo adattato di TF-CBT e poi supervisionate con regolarità. I risultati clinici erano significativi. Ma la cosa più rilevante non era che funzionava: era cosa serviva perché continuasse a farlo a due anni di distanza.</p>
+      <p>Serviva la supervisione. Non come controllo burocratico, ma come sistema nervoso centrale dell'intervento. I siti con supervisione strutturata e continuativa mostravano tassi di adozione significativamente più alti: a due anni dalla fine dello studio, circa il 70% dei siti nel settore Educazione continuava a erogare l'intervento autonomamente. Dove il contenimento mancava, l'intervento si sgretolava.</p>
+      <p>Sulla TF-CBT nel suo insieme, una meta-analisi del 2024 (Thielemann et al.) ha calcolato un effect size di Hedges' g pari a 1.71 nel confronto pre-post trattamento per i sintomi di PTSD, e di g=1.40 nel confronto con la lista d'attesa a 12 mesi. Effetti grandi, stabili nel tempo, replicati in popolazioni diverse.</p>
+      <hr class="modal-divider">
+      <p class="modal-section-title">Il clima terapeutico come variabile psico-biologica</p>
+      <p>Un'altra linea di ricerca, costruita dall'Università del Delaware attorno al programma ABC (Attachment and Biobehavioral Catch-up), ha aggiunto un dato che inizialmente sembrava eccessivo. Intervenire sulla qualità relazionale del caregiver produce effetti misurabili non solo sul comportamento del bambino, ma sui suoi biomarcatori biologici.</p>
+      <p>Il programma ABC consiste in dieci sessioni in cui un parent coach lavora con il caregiver sulla sensibilità relazionale. I risultati sono precisi: il 52% dei bambini nel gruppo ABC sviluppa un attaccamento sicuro rispetto al 33% nel gruppo di controllo; la quota di attaccamento disorganizzato scende al 32% contro il 57% nei controlli. I bambini i cui caregiver avevano ricevuto l'intervento mostravano profili di cortisolo significativamente più normali, con effetti documentati a tre anni di distanza dalla fine del programma.</p>
+      <p>Il clima terapeutico, quindi, non è una metafora: è una variabile che si misura in laboratorio. L'operatore educativo non è il tramite verso la cura. È la cura.</p>
+      <hr class="modal-divider">
+      <p class="modal-section-title">Il vulnus che nessuno ha ancora colmato</p>
+      <p>Eppure la ricerca internazionale su questo specifico nodo è quasi inesistente. Nel database di ClinicalTrials.gov non esiste un trial dedicato alla supervisione degli operatori in contesti residenziali per minori come variabile di esito primaria. La domanda — la supervisione cambia la qualità del clima relazionale quotidiano, e questo cambiamento produce effetti misurabili sul minore? — non ha ancora trovato risposta perché non è ancora stata cercata con il rigore che merita.</p>
+      <hr class="modal-divider">
+      <p class="modal-section-title">Cosa succede nelle CEM con MSNA</p>
+      <p>Nelle comunità educative residenziali per MSNA il problema si presenta in forma acuta. Le storie che arrivano sono dense: migrazioni forzate, attraversamenti pericolosi, violenze subite o assistite, lutti multipli, interruzioni radicali di ogni legame affettivo precedente. Il trauma non è un episodio da elaborare: è spesso la struttura stessa dell'esperienza del minore.</p>
+      <p>In questo contesto l'operatore educativo non incontra il minore una volta a settimana in uno studio protetto. Lo incontra ogni giorno, in cucina, a tavola, nei corridoi, nelle crisi notturne. Questa prossimità è al tempo stesso la risorsa principale e il rischio principale: risorsa perché la continuità relazionale costruisce la possibilità di un attaccamento sicuro; rischio perché il contatto prolungato con storie di dolore intenso produce stress traumatico secondario, o traumatizzazione vicaria.</p>
+      <p>Un educatore in stato di traumatizzazione vicaria non crolla necessariamente in modo visibile. Più spesso si irrigidisce: riduce la complessità delle letture, aumenta la distanza emotiva, interpreta e risponde ai segnali relazionali del minore con meno sensibilità e meno accuratezza. Questa riduzione incide direttamente sulla traiettoria evolutiva del minore e ne condiziona la prognosi sociale.</p>
+      <hr class="modal-divider">
+      <p class="modal-section-title">La supervisione come variabile clinica</p>
+      <p>Qui sta il punto che ancora fatica a entrare nella cultura dei servizi: la supervisione degli operatori non è un adempimento di qualità. È una variabile clinica. Determina la qualità del clima terapeutico — che non è il progetto educativo scritto nella Carta dei Servizi, ma il modo in cui la comunità funziona ogni giorno.</p>
+      <p>Il coordinatore di una CEM non è solo un gestore di turni e di casi. È il garante della tenuta dell'eco-sistema terapeutico. Il suo compito principale è la costruzione e il mantenimento delle condizioni in cui la relazione educativa possa essere davvero curativa.</p>
+      <p>Significa riconoscere che la formazione iniziale non è sufficiente: senza supervisione continuativa, la competenza decade più in fretta nei contesti ad alta intensità emotiva. Significa costruire spazi di supervisione che non separino il caso clinico dall'emotività dell'operatore. Significa, infine, smettere di trattare il benessere dell'educatore come una questione separata dal benessere del minore. Non lo è. Sono la stessa variabile, misurata su soggetti diversi.</p>
+      <p>Quando quel ragazzo di sedici anni fa la sua prima domanda, non lo fa perché qualcuno gli ha spiegato che può farlo. Lo fa perché ha incontrato, abbastanza spesso e abbastanza a lungo, qualcuno che era davvero presente. Qualcuno che non aveva esaurito la propria capacità di esserci e di ascoltare. Mantenere viva questa capacità negli operatori è il compito più fondamentale di una comunità educativa. Coltivarla in modo sistematico segna la differenza tra un semplice contesto di accoglienza e un autentico ambiente terapeutico.</p>
+    </div>
+    <div class="modal-footer">Massimo Andreoni · Aprile 2026 · Psicoin | Comunità educativa residenziale per MSNA</div>
+  </div>
+</div>
+
 </body>
 </html>
+
 
 
 
